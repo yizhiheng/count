@@ -88,13 +88,13 @@
 				81E1FA741B488B0B000386EE /* AppDelegate.swift */,
 				81E1FA791B488B0B000386EE /* ViewController.swift */,
 				81E1FA991B489458000386EE /* TableViewController.swift */,
+				81E1FA9B1B48E93E000386EE /* TableViewCell.swift */,
 				81E1FA7B1B488B0B000386EE /* Main.storyboard */,
 				81E1FA971B488DD9000386EE /* Task.swift */,
 				81E1FA7E1B488B0B000386EE /* Images.xcassets */,
 				81E1FA801B488B0B000386EE /* LaunchScreen.xib */,
 				81E1FA761B488B0B000386EE /* count.xcdatamodeld */,
 				81E1FA721B488B0B000386EE /* Supporting Files */,
-				81E1FA9B1B48E93E000386EE /* TableViewCell.swift */,
 			);
 			path = count;
 			sourceTree = "<group>";
@@ -168,6 +168,7 @@
 		81E1FA671B488B0B000386EE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Zhiheng Yi";
 				TargetAttributes = {
@@ -425,6 +426,7 @@
 				81E1FA931B488B0C000386EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		81E1FA941B488B0C000386EE /* Build configuration list for PBXNativeTarget "countTests" */ = {
 			isa = XCConfigurationList;
@@ -433,6 +435,7 @@
 				81E1FA961B488B0C000386EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

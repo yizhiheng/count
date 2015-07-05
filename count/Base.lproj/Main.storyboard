@@ -82,9 +82,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIc-tP-dS1">
-                                            <rect key="frame" x="275.5" y="8" width="50" height="65.5"/>
+                                            <rect key="frame" x="250.5" y="8" width="100" height="65.5"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="50" id="ZId-9e-aEn"/>
+                                                <constraint firstAttribute="width" constant="100" id="ZId-9e-aEn"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="36"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -129,8 +129,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="addButton" destination="Txd-b0-4sQ" id="3ad-CI-K5l"/>
                                     <outlet property="contentLabel" destination="ELb-mQ-8yp" id="6b8-mD-BJL"/>
-                                    <outlet property="count" destination="sIc-tP-dS1" id="9OB-Sr-FXN"/>
+                                    <outlet property="countLabel" destination="sIc-tP-dS1" id="HHT-Hp-ndG"/>
+                                    <outlet property="minusButton" destination="Btm-0o-RIP" id="oKy-tm-OIH"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -142,7 +144,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WAg-Hk-8KE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1594" y="-434"/>
+            <point key="canvasLocation" x="1778" y="-434"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6OH-aP-Oay">

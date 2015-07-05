@@ -9,10 +9,22 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-
     
     @IBOutlet weak var contentLabel: UILabel!
-    @IBOutlet weak var count: UILabel!
+    @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var minusButton: UIButton!
+    
+    var content: String? {
+        didSet {
+            contentLabel.text = content
+        }
+    }
+    var count: Int? {
+        didSet {
+            countLabel.text = "\(count!)"
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

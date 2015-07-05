@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func viewTapped(sender: AnyObject) {
+        refresh()
         for task in tasks {
             println("Index: \(task.index)   Content: \(task.content)    Count: \(task.count)")
         }
@@ -56,7 +57,6 @@ class ViewController: UIViewController {
         let sortDescriptor = NSSortDescriptor(key: "index", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         var error: NSError?
-        tasks = managedObjectContext.executeFetchRequest(fetchRequest, error: &error) as! [Task]
         if let fetchResults = managedObjectContext.executeFetchRequest(fetchRequest, error: nil) as? [Task] {
             tasks = fetchResults
         }

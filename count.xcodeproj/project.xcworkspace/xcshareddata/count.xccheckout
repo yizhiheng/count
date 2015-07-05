@@ -7,21 +7,21 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>C7FFA0EB-60F9-4B5F-9C2C-9C2D380CFAB3</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>count</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>9C0C04478FD526129769373EF8A1F8D4536B0982</key>
-		<string>github.com:yizhiheng/SimpleCoreDataDemo.git</string>
+		<string>github.com:yizhiheng/count.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>count.xcodeproj/project.xcworkspace</string>
+	<string>count.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>9C0C04478FD526129769373EF8A1F8D4536B0982</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>github.com:yizhiheng/SimpleCoreDataDemo.git</string>
+	<string>github.com:yizhiheng/count.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
