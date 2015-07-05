@@ -3,8 +3,9 @@
     <entity name="Task" representedClassName="count.Task" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="count" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Task" positionX="-54" positionY="-9" width="128" height="75"/>
+        <element name="Task" positionX="-54" positionY="-9" width="128" height="90"/>
     </elements>
 </model>

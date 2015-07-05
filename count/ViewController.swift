@@ -10,45 +10,62 @@ import UIKit
 import CoreData
 class ViewController: UIViewController {
     
-    let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
     var tasks = [Task]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        refresh()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
 
     @IBAction func viewTapped(sender: AnyObject) {
-        let fetchRequest = NSFetchRequest(entityName:"Task")
-        var error: NSError?
-        tasks = managedContext.executeFetchRequest(fetchRequest, error: &error) as! [Task]
         for task in tasks {
-
-            println("Content: \(task.content)         Count: \(task.count)")
-            
+            println("Index: \(task.index)   Content: \(task.content)    Count: \(task.count)")
         }
         println("----------------------------------")
+
     }
 
     @IBAction func addTapped(sender: AnyObject) {
         
-        let entity =  NSEntityDescription.entityForName("Task", inManagedObjectContext: managedContext)
-        
-        let task = Task(entity: entity!, insertIntoManagedObjectContext:managedContext)
-        
-        //task.setValue("read book", forKey: "content")
-        task.content = "trytry"
-        task.count = 999
+        let entity =  NSEntityDescription.entityForName("Task", inManagedObjectContext: managedObjectContext)
+        let task = Task(entity: entity!, insertIntoManagedObjectContext: managedObjectContext)
+        task.index = Int16(tasks.count)
+        task.content = "test"
+        task.count = Int16(arc4random_uniform(10))
+        save()
+        refresh()
+
+    }
+    
+    @IBAction func deleteLastTapped(sender: AnyObject) {
+        if let last = tasks.last {
+            managedObjectContext.deleteObject(tasks.last!)
+            save()
+            refresh()
+        }
+    }
+    
+    func refresh () {
+        let fetchRequest = NSFetchRequest(entityName:"Task")
+        let sortDescriptor = NSSortDescriptor(key: "index", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         var error: NSError?
-        if !managedContext.save(&error) {
+        tasks = managedObjectContext.executeFetchRequest(fetchRequest, error: &error) as! [Task]
+        if let fetchResults = managedObjectContext.executeFetchRequest(fetchRequest, error: nil) as? [Task] {
+            tasks = fetchResults
+        }
+    }
+    func save () {
+        var error: NSError?
+        if !managedObjectContext.save(&error) {
             println("Could not save \(error), \(error?.userInfo)")
         }
-        tasks.append(task)
     }
     
 }
