@@ -88,7 +88,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-        changeIndex(tasks[fromIndexPath.row], task2: tasks[toIndexPath.row])
+        changeIndex(fromIndexPath.row, to: toIndexPath.row)
         refresh()
         tableView.reloadData()
         
@@ -121,10 +121,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         save()
     }
     
-    func changeIndex (task1: Task, task2: Task) {
-        let medium = task1.index
-        task1.index = task2.index
-        task2.index = medium
+    func changeIndex (from: Int, to: Int) {
+        
+        
+        for task in tasks {
+            if from > to {
+                if task.index >= Int16(to) && task.index < Int16(from) {
+                    task.index++
+                }
+            }
+            if from < to {
+                if task.index > Int16(from) && task.index <= Int16(to) {
+                    task.index--
+                }
+                
+            }
+        }
+        tasks[from].index = Int16(to)
         save()
     }
     func deleteTaskAtIndex (index: Int) {
@@ -185,7 +198,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
             }
         )
-        
         let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
             //Do nothing
         }
