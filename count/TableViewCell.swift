@@ -28,7 +28,13 @@ class TableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        self.layer.shadowOffset = CGSizeMake(3, 3)
+        self.layer.shadowRadius = 5
+        self.layer.shadowColor = UIColor.grayColor().CGColor
+        self.layer.shadowOpacity = 0.3
+        
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

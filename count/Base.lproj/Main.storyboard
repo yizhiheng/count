@@ -122,11 +122,31 @@
                     <connections>
                         <outlet property="newTaskButton" destination="WEs-lS-mvS" id="6XL-YW-jXq"/>
                         <outlet property="tableView" destination="enW-kW-QKp" id="QBE-8l-nCu"/>
+                        <segue destination="V4r-fT-7NN" kind="show" identifier="showDetailSegue" id="kl3-cS-SoH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="904" y="-434"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Dkd-Vv-TPo">
+            <objects>
+                <viewController id="V4r-fT-7NN" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ev7-Uc-bcj"/>
+                        <viewControllerLayoutGuide type="bottom" id="Cdg-0O-Hiy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="q34-Wn-8jO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Yj5-Bw-qwB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q9l-37-vOF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1598" y="-434"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6OH-aP-Oay">

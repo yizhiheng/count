@@ -33,6 +33,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         newTaskButton.layer.shadowColor = UIColor.grayColor().CGColor
         newTaskButton.layer.shadowOpacity = 0.5
         
+        let titleLabel = UILabel(frame: CGRectMake(0, 0, 200, 40))
+        titleLabel.font = UIFont(name: "helvetica neue light", size: 25)
+        titleLabel.textAlignment = .Center
+        titleLabel.text = "Knots"
+        titleLabel.textColor = UIColor.grayColor()
+        titleLabel.backgroundColor = UIColor.clearColor()
+        titleLabel.adjustsFontSizeToFitWidth = true
+        self.navigationItem.titleView = titleLabel
+
+        tableView.separatorStyle = .None
         
         super.viewDidLoad()
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
@@ -98,6 +108,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return true
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("showDetailSegue", sender: tasks[indexPath.row])
+        
+    }
     func addTapped (sender: UIButton) {
         updateStoredItem(tasks[sender.tag], flag: Flag.add)
         self.tableView.reloadData()
@@ -122,8 +136,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func changeIndex (from: Int, to: Int) {
-        
-        
         for task in tasks {
             if from > to {
                 if task.index >= Int16(to) && task.index < Int16(from) {

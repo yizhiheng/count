@@ -10,7 +10,9 @@ import Foundation
 import UIKit
 
 class Tools {
-
+    
+    var colorsForCell = [UIColor]()
+    
     func addShadow(buttons: UIButton...) {
         for button in buttons {
             button.layer.shadowOffset = CGSizeMake(3, 3)
@@ -19,4 +21,5 @@ class Tools {
             button.layer.shadowOpacity = 0.5
         }
     }
+    
 }
