@@ -15,8 +15,8 @@
 		81E1FA821B488B0B000386EE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81E1FA801B488B0B000386EE /* LaunchScreen.xib */; };
 		81E1FA8E1B488B0B000386EE /* countTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E1FA8D1B488B0B000386EE /* countTests.swift */; };
 		81E1FA981B488DD9000386EE /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E1FA971B488DD9000386EE /* Task.swift */; };
-		81E1FA9A1B489458000386EE /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E1FA991B489458000386EE /* TableViewController.swift */; };
 		81E1FA9C1B48E93E000386EE /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E1FA9B1B48E93E000386EE /* TableViewCell.swift */; };
+		81F787161B4A03D7007ED96E /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F787151B4A03D7007ED96E /* Tools.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,8 +42,8 @@
 		81E1FA8C1B488B0B000386EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81E1FA8D1B488B0B000386EE /* countTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = countTests.swift; sourceTree = "<group>"; };
 		81E1FA971B488DD9000386EE /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		81E1FA991B489458000386EE /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		81E1FA9B1B48E93E000386EE /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		81F787151B4A03D7007ED96E /* Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,10 +87,10 @@
 			children = (
 				81E1FA741B488B0B000386EE /* AppDelegate.swift */,
 				81E1FA791B488B0B000386EE /* ViewController.swift */,
-				81E1FA991B489458000386EE /* TableViewController.swift */,
 				81E1FA9B1B48E93E000386EE /* TableViewCell.swift */,
 				81E1FA7B1B488B0B000386EE /* Main.storyboard */,
 				81E1FA971B488DD9000386EE /* Task.swift */,
+				81F787151B4A03D7007ED96E /* Tools.swift */,
 				81E1FA7E1B488B0B000386EE /* Images.xcassets */,
 				81E1FA801B488B0B000386EE /* LaunchScreen.xib */,
 				81E1FA761B488B0B000386EE /* count.xcdatamodeld */,
@@ -228,8 +228,8 @@
 				81E1FA981B488DD9000386EE /* Task.swift in Sources */,
 				81E1FA7A1B488B0B000386EE /* ViewController.swift in Sources */,
 				81E1FA751B488B0B000386EE /* AppDelegate.swift in Sources */,
+				81F787161B4A03D7007ED96E /* Tools.swift in Sources */,
 				81E1FA9C1B48E93E000386EE /* TableViewCell.swift in Sources */,
-				81E1FA9A1B489458000386EE /* TableViewController.swift in Sources */,
 				81E1FA781B488B0B000386EE /* count.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
