@@ -99,9 +99,6 @@
 				81E1FA7B1B488B0B000386EE /* Main.storyboard */,
 				81E1FA971B488DD9000386EE /* Task.swift */,
 				81F787151B4A03D7007ED96E /* Tools.swift */,
-				81E1FA7E1B488B0B000386EE /* Images.xcassets */,
-				81E1FA801B488B0B000386EE /* LaunchScreen.xib */,
-				81E1FA761B488B0B000386EE /* count.xcdatamodeld */,
 				81E1FA721B488B0B000386EE /* Supporting Files */,
 			);
 			path = count;
@@ -110,6 +107,9 @@
 		81E1FA721B488B0B000386EE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				81E1FA761B488B0B000386EE /* count.xcdatamodeld */,
+				81E1FA801B488B0B000386EE /* LaunchScreen.xib */,
+				81E1FA7E1B488B0B000386EE /* Images.xcassets */,
 				81E1FA731B488B0B000386EE /* Info.plist */,
 			);
 			name = "Supporting Files";
