@@ -25,6 +25,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     override func viewWillAppear(animated: Bool) {
+        
         refresh()
     }
     override func viewDidLoad() {
@@ -193,6 +194,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             println("Could not save \(error), \(error?.userInfo)")
         }
     }
+    
     
     @IBAction func newTaskButtonTapped(sender: UIButton) {
         var alertController:UIAlertController?
