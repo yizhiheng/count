@@ -11,28 +11,28 @@ import UIKit
 class TableViewCell: UITableViewCell {
     
     @IBOutlet weak var contentLabel: UILabel!
-    @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var countLabel: SpringLabel!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var minusButton: UIButton!
     
     var content: String? {
         didSet {
             contentLabel.text = content
+
         }
     }
     var count: Int? {
         didSet {
             countLabel.text = "\(count!)"
+
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.layer.shadowOffset = CGSizeMake(3, 3)
-        self.layer.shadowRadius = 5
-        self.layer.shadowColor = UIColor.grayColor().CGColor
-        self.layer.shadowOpacity = 0.3
+        addShadow(self, countLabel, contentLabel, addButton, minusButton)
+        
         
         
     }
@@ -43,6 +43,7 @@ class TableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     @IBAction func addTapped(sender: AnyObject) {
+
     }
 
     @IBAction func minusTapped(sender: AnyObject) {

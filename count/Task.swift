@@ -13,4 +13,6 @@ class Task: NSManagedObject {
     @NSManaged var index: Int16
     @NSManaged var content: String
     @NSManaged var count: Int16
+    
+    
 }

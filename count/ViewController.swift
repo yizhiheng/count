@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+
 enum Flag {
     case add
     case minus
@@ -34,7 +35,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         newTaskButton.layer.shadowOpacity = 0.5
         
         let titleLabel = UILabel(frame: CGRectMake(0, 0, 200, 40))
-        titleLabel.font = UIFont(name: "helvetica neue light", size: 25)
+        titleLabel.font = UIFont(name: "Avenir Next", size: 23)
         titleLabel.textAlignment = .Center
         titleLabel.text = "Knots"
         titleLabel.textColor = UIColor.grayColor()
@@ -85,6 +86,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.minusButton.addTarget(self, action: "minusTapped:", forControlEvents: .TouchUpInside)
         cell.content = tasks[indexPath.row].content
         cell.count = Int(tasks[indexPath.row].count)
+        cell.backgroundColor = Tools().colorsForCell()[indexPath.row]
         return cell
     }
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
