@@ -29,6 +29,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         refresh()
     }
     override func viewDidLoad() {
+        println("main")
+        
+        //self.navigationController.navigationBar.barStyle = UIBarStyleBlack
+        //self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
+
         
         newTaskButton.layer.shadowOffset = CGSizeMake(3, 3)
         newTaskButton.layer.shadowRadius = 3
