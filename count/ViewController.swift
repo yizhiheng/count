@@ -44,7 +44,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         titleLabel.font = UIFont(name: "Avenir Next", size: 23)
         titleLabel.textAlignment = .Center
         titleLabel.text = "Knots"
-        titleLabel.textColor = UIColor.grayColor()
+        titleLabel.textColor = UIColor.whiteColor()
         titleLabel.backgroundColor = UIColor.clearColor()
         titleLabel.adjustsFontSizeToFitWidth = true
         self.navigationItem.titleView = titleLabel
@@ -52,7 +52,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.separatorStyle = .None
         
         super.viewDidLoad()
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        //self.navigationItem.leftBarButtonItem = self.editButtonItem()
     }
     
     override func didReceiveMemoryWarning() {
