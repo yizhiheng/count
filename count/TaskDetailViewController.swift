@@ -15,10 +15,10 @@ class TaskDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.view.backgroundColor = UIColor.clearColor()
-        self.navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+//        self.navigationController?.navigationBar.shadowImage = UIImage()
+//        self.navigationController?.view.backgroundColor = UIColor.clearColor()
+//        self.navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
         
         //self.navigationController.navigationBar.barStyle = UIBarStyleBlack
         //
