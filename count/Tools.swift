@@ -9,9 +9,6 @@
 import Foundation
 import UIKit
 
-var slala = "123"
-
-
 class Tools {
     
     
@@ -24,14 +21,6 @@ class Tools {
         }
     }
     
-    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
-    }
     
     func colorsForCell () -> [UIColor] {
         let colors = [
@@ -40,8 +29,29 @@ class Tools {
             UIColor(red: 244, green: 123, blue: 106),
             UIColor(red: 209, green: 220, blue: 224),
         ]
-
         return colors
+    }
+}
+
+
+func updateStoredItem (task: Task, flag: Flag) {
+    switch flag {
+    case .add: task.count += 1
+    case .minus:
+        if task.count == 0 {
+            task.count = 0
+        } else {
+            task.count -= 1
+        }
+    default: ()
+    }
+    save()
+}
+
+func save () {
+    var error: NSError?
+    if !managedObjectContext.save(&error) {
+        println("Could not save \(error), \(error?.userInfo)")
     }
 }
 

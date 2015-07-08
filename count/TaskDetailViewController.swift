@@ -13,7 +13,7 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var minusButton: UIButton!
     
-    @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var countLabel: SpringLabel!
     
     @IBOutlet weak var contentLabel: UILabel!
     var taskIndex: Int? {
@@ -55,6 +55,19 @@ class TaskDetailViewController: UIViewController {
         countLabel.text = "\(tasks[tappedTaskIndex].count)"
         contentLabel.text = "\(tasks[tappedTaskIndex].content)..."
     }
+    
+    
+    
+    @IBAction func addTapped(sender: UIButton) {
+        updateStoredItem(tasks[tappedTaskIndex], Flag.add)
+
+        showData()
+    }
+    @IBAction func minusTapped(sender: UIButton) {
+        updateStoredItem(tasks[tappedTaskIndex], Flag.minus)
+        showData()
+    }
+
     /*
     // MARK: - Navigation
 

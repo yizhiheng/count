@@ -16,7 +16,12 @@ enum Flag {
 
 let fetchRequest = NSFetchRequest(entityName:"Task")
 let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
-var tasks = [Task]()
+
+var tasks = [Task]() {
+didSet {
+    
+}
+}
 var tappedTaskIndex: Int = 0
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -26,6 +31,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewWillAppear(animated: Bool) {
         refresh()
+        tableView.reloadData()
     }
     override func viewDidLoad() {
         
@@ -126,28 +132,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        var detailViewController = segue.destinationViewController as! TaskDetailViewController;
 //        detailViewController.taskIndex = 10
     }
+    
     func addTapped (sender: UIButton) {
-        updateStoredItem(tasks[sender.tag], flag: Flag.add)
-        self.tableView.reloadData()
+        if sender.tag < tasks.count {
+            updateStoredItem(tasks[sender.tag], Flag.add)
+            self.tableView.reloadData()
+        } else {
+            println("error")
+        }
+
     }
     func minusTapped (sender: UIButton) {
-        updateStoredItem(tasks[sender.tag], flag: Flag.minus)
+        updateStoredItem(tasks[sender.tag], Flag.minus)
         self.tableView.reloadData()
     }
     
-    func updateStoredItem (task: Task, flag: Flag) {
-        switch flag {
-        case .add: task.count += 1
-        case .minus:
-            if task.count == 0 {
-                task.count = 0
-            } else {
-                task.count -= 1
-            }
-        default: ()
-        }
-        save()
-    }
+
     
     func changeIndex (from: Int, to: Int) {
         for task in tasks {
@@ -199,12 +199,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             return false
         }
     }
-    func save () {
-        var error: NSError?
-        if !managedObjectContext.save(&error) {
-            println("Could not save \(error), \(error?.userInfo)")
-        }
-    }
+
     
     
     @IBAction func newTaskButtonTapped(sender: UIButton) {
