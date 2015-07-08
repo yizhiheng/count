@@ -29,7 +29,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbj-Ni-Frt" customClass="SpringLabel" customModule="count" customModuleProvider="target">
-                                                    <rect key="frame" x="250" y="8" width="100" height="66.5"/>
+                                                    <rect key="frame" x="250" y="8" width="100" height="67"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="hCs-jx-RQY"/>
                                                     </constraints>
@@ -38,7 +38,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Running" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPg-kA-L7f">
-                                                    <rect key="frame" x="8" y="53" width="242" height="21.5"/>
+                                                    <rect key="frame" x="8" y="53" width="242" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="P4z-0H-4o0"/>
                                                     </constraints>
@@ -134,12 +134,16 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="tzy-yE-l0M"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JwZ-g3-FSg" userLabel="Back View">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <color key="backgroundColor" red="0.22303109217171713" green="0.22303109217171713" blue="0.22303109217171713" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WEs-lS-mvS" customClass="SpringButton" customModule="count" customModuleProvider="target">
                                 <rect key="frame" x="275" y="530" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.16078431369999999" green="0.80392156859999997" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Ttd-VN-Jci"/>
-                                    <constraint firstAttribute="width" constant="50" id="ZHq-yU-sAl"/>
+                                    <constraint firstAttribute="height" constant="50" id="A3q-oB-7R5"/>
+                                    <constraint firstAttribute="width" constant="50" id="jvC-SY-m1P"/>
                                 </constraints>
                                 <state key="normal" title="+">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -159,13 +163,29 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="enW-kW-QKp" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="1tG-5C-iqR"/>
-                            <constraint firstAttribute="trailing" secondItem="enW-kW-QKp" secondAttribute="trailing" id="Nno-2v-coS"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="WEs-lS-mvS" secondAttribute="bottom" constant="20" id="P33-6d-SWi"/>
-                            <constraint firstAttribute="centerX" secondItem="WEs-lS-mvS" secondAttribute="centerX" id="Ucv-17-ZIJ"/>
-                            <constraint firstItem="enW-kW-QKp" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="k4M-by-wEy"/>
-                            <constraint firstItem="enW-kW-QKp" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="uK1-Xs-qmH"/>
+                            <constraint firstAttribute="centerX" secondItem="WEs-lS-mvS" secondAttribute="centerX" id="1Lm-66-DND"/>
+                            <constraint firstItem="JwZ-g3-FSg" firstAttribute="bottom" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="Ief-wh-2d6"/>
+                            <constraint firstItem="JwZ-g3-FSg" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="Kow-wO-0Sm"/>
+                            <constraint firstItem="JwZ-g3-FSg" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="NMZ-th-U3R"/>
+                            <constraint firstItem="WEs-lS-mvS" firstAttribute="centerX" secondItem="JwZ-g3-FSg" secondAttribute="centerX" id="Oi6-dd-1JI"/>
+                            <constraint firstAttribute="trailing" secondItem="JwZ-g3-FSg" secondAttribute="trailing" id="SSV-Bb-gSI"/>
+                            <constraint firstItem="WEs-lS-mvS" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="466" id="VKO-cn-2Td"/>
+                            <constraint firstAttribute="trailing" secondItem="enW-kW-QKp" secondAttribute="trailing" id="Wbu-sR-j6Y"/>
+                            <constraint firstItem="enW-kW-QKp" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="gcq-24-243"/>
+                            <constraint firstItem="enW-kW-QKp" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="jog-Rx-FZS"/>
+                            <constraint firstAttribute="bottom" secondItem="WEs-lS-mvS" secondAttribute="bottom" constant="20" symbolic="YES" id="nhY-RV-I0e"/>
+                            <constraint firstItem="enW-kW-QKp" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="p8V-RH-2pd"/>
+                            <constraint firstItem="JwZ-g3-FSg" firstAttribute="leading" secondItem="enW-kW-QKp" secondAttribute="leading" id="tDH-8q-flq"/>
+                            <constraint firstItem="enW-kW-QKp" firstAttribute="trailing" secondItem="JwZ-g3-FSg" secondAttribute="trailing" id="wPH-Kr-R3F"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="tDH-8q-flq"/>
+                                <exclude reference="wPH-Kr-R3F"/>
+                                <exclude reference="Oi6-dd-1JI"/>
+                                <exclude reference="VKO-cn-2Td"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="8tE-dH-dou">
                         <nil key="title"/>
@@ -390,7 +410,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TVG-CE-X6R">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.17254901960784313" green="0.38823529411764707" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
