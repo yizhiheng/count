@@ -93,7 +93,7 @@
 		81BAF6D61B4CCD8100C71F3A /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		81BAF6D71B4CCD8100C71F3A /* TransitionZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionZoom.swift; sourceTree = "<group>"; };
 		81BAF6D81B4CCD8100C71F3A /* UnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnwindSegue.swift; sourceTree = "<group>"; };
-		81E1FA6F1B488B0B000386EE /* count.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = count.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		81E1FA6F1B488B0B000386EE /* Knots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Knots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81E1FA731B488B0B000386EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81E1FA741B488B0B000386EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81E1FA771B488B0B000386EE /* count.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = count.xcdatamodel; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 		81E1FA7C1B488B0B000386EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		81E1FA7E1B488B0B000386EE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		81E1FA811B488B0B000386EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		81E1FA871B488B0B000386EE /* countTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = countTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		81E1FA871B488B0B000386EE /* KnotsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnotsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81E1FA8C1B488B0B000386EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81E1FA8D1B488B0B000386EE /* countTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = countTests.swift; sourceTree = "<group>"; };
 		81E1FA971B488DD9000386EE /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
@@ -185,8 +185,8 @@
 		81E1FA701B488B0B000386EE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				81E1FA6F1B488B0B000386EE /* count.app */,
-				81E1FA871B488B0B000386EE /* countTests.xctest */,
+				81E1FA6F1B488B0B000386EE /* Knots.app */,
+				81E1FA871B488B0B000386EE /* KnotsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -238,9 +238,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		81E1FA6E1B488B0B000386EE /* count */ = {
+		81E1FA6E1B488B0B000386EE /* Knots */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 81E1FA911B488B0C000386EE /* Build configuration list for PBXNativeTarget "count" */;
+			buildConfigurationList = 81E1FA911B488B0C000386EE /* Build configuration list for PBXNativeTarget "Knots" */;
 			buildPhases = (
 				81E1FA6B1B488B0B000386EE /* Sources */,
 				81E1FA6C1B488B0B000386EE /* Frameworks */,
@@ -250,14 +250,14 @@
 			);
 			dependencies = (
 			);
-			name = count;
+			name = Knots;
 			productName = count;
-			productReference = 81E1FA6F1B488B0B000386EE /* count.app */;
+			productReference = 81E1FA6F1B488B0B000386EE /* Knots.app */;
 			productType = "com.apple.product-type.application";
 		};
-		81E1FA861B488B0B000386EE /* countTests */ = {
+		81E1FA861B488B0B000386EE /* KnotsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 81E1FA941B488B0C000386EE /* Build configuration list for PBXNativeTarget "countTests" */;
+			buildConfigurationList = 81E1FA941B488B0C000386EE /* Build configuration list for PBXNativeTarget "KnotsTests" */;
 			buildPhases = (
 				81E1FA831B488B0B000386EE /* Sources */,
 				81E1FA841B488B0B000386EE /* Frameworks */,
@@ -268,9 +268,9 @@
 			dependencies = (
 				81E1FA891B488B0B000386EE /* PBXTargetDependency */,
 			);
-			name = countTests;
+			name = KnotsTests;
 			productName = countTests;
-			productReference = 81E1FA871B488B0B000386EE /* countTests.xctest */;
+			productReference = 81E1FA871B488B0B000386EE /* KnotsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -292,7 +292,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 81E1FA6A1B488B0B000386EE /* Build configuration list for PBXProject "count" */;
+			buildConfigurationList = 81E1FA6A1B488B0B000386EE /* Build configuration list for PBXProject "Knots" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -305,8 +305,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				81E1FA6E1B488B0B000386EE /* count */,
-				81E1FA861B488B0B000386EE /* countTests */,
+				81E1FA6E1B488B0B000386EE /* Knots */,
+				81E1FA861B488B0B000386EE /* KnotsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -389,7 +389,7 @@
 /* Begin PBXTargetDependency section */
 		81E1FA891B488B0B000386EE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 81E1FA6E1B488B0B000386EE /* count */;
+			target = 81E1FA6E1B488B0B000386EE /* Knots */;
 			targetProxy = 81E1FA881B488B0B000386EE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -501,7 +501,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = count/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Knots;
 			};
 			name = Debug;
 		};
@@ -511,7 +511,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = count/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Knots;
 			};
 			name = Release;
 		};
@@ -529,8 +529,8 @@
 				);
 				INFOPLIST_FILE = countTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/count.app/count";
+				PRODUCT_NAME = KnotsTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Knots.app/Knots";
 			};
 			name = Debug;
 		};
@@ -544,15 +544,15 @@
 				);
 				INFOPLIST_FILE = countTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/count.app/count";
+				PRODUCT_NAME = KnotsTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Knots.app/Knots";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		81E1FA6A1B488B0B000386EE /* Build configuration list for PBXProject "count" */ = {
+		81E1FA6A1B488B0B000386EE /* Build configuration list for PBXProject "Knots" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81E1FA8F1B488B0C000386EE /* Debug */,
@@ -561,7 +561,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		81E1FA911B488B0C000386EE /* Build configuration list for PBXNativeTarget "count" */ = {
+		81E1FA911B488B0C000386EE /* Build configuration list for PBXNativeTarget "Knots" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81E1FA921B488B0C000386EE /* Debug */,
@@ -570,7 +570,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		81E1FA941B488B0C000386EE /* Build configuration list for PBXNativeTarget "countTests" */ = {
+		81E1FA941B488B0C000386EE /* Build configuration list for PBXNativeTarget "KnotsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81E1FA951B488B0C000386EE /* Debug */,

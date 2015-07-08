@@ -15,23 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "81E1FA6E1B488B0B000386EE"
-               BuildableName = "count.app"
-               BlueprintName = "count"
-               ReferencedContainer = "container:count.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "81E1FA861B488B0B000386EE"
-               BuildableName = "countTests.xctest"
-               BlueprintName = "countTests"
-               ReferencedContainer = "container:count.xcodeproj">
+               BuildableName = "Knots.app"
+               BlueprintName = "Knots"
+               ReferencedContainer = "container:Knots.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -42,24 +28,14 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "81E1FA861B488B0B000386EE"
-               BuildableName = "countTests.xctest"
-               BlueprintName = "countTests"
-               ReferencedContainer = "container:count.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81E1FA6E1B488B0B000386EE"
-            BuildableName = "count.app"
-            BlueprintName = "count"
-            ReferencedContainer = "container:count.xcodeproj">
+            BuildableName = "Knots.app"
+            BlueprintName = "Knots"
+            ReferencedContainer = "container:Knots.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81E1FA6E1B488B0B000386EE"
-            BuildableName = "count.app"
-            BlueprintName = "count"
-            ReferencedContainer = "container:count.xcodeproj">
+            BuildableName = "Knots.app"
+            BlueprintName = "Knots"
+            ReferencedContainer = "container:Knots.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81E1FA6E1B488B0B000386EE"
-            BuildableName = "count.app"
-            BlueprintName = "count"
-            ReferencedContainer = "container:count.xcodeproj">
+            BuildableName = "Knots.app"
+            BlueprintName = "Knots"
+            ReferencedContainer = "container:Knots.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

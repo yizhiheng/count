@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:count.xcodeproj">
+      location = "self:/Users/Zhiheng/Desktop/count/Knots.xcodeproj">
    </FileRef>
 </Workspace>
