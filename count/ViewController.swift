@@ -13,23 +13,21 @@ enum Flag {
     case add
     case minus
 }
+
+let fetchRequest = NSFetchRequest(entityName:"Task")
+let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
+var tasks = [Task]()
+var tappedTaskIndex: Int = 0
+
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var newTaskButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
-    let fetchRequest = NSFetchRequest(entityName:"Task")
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
-    
-    var tasks = [Task]()
-    
-    
     override func viewWillAppear(animated: Bool) {
-        
         refresh()
     }
     override func viewDidLoad() {
-        println("main")
         
         //self.navigationController.navigationBar.barStyle = UIBarStyleBlack
         //self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
@@ -117,8 +115,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("showDetailSegue", sender: tasks[indexPath.row])
         
+        tappedTaskIndex = indexPath.row
+        self.performSegueWithIdentifier("showDetailSegue", sender: nil)
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        
+//        var detailViewController = segue.destinationViewController as! TaskDetailViewController;
+//        detailViewController.taskIndex = 10
     }
     func addTapped (sender: UIButton) {
         updateStoredItem(tasks[sender.tag], flag: Flag.add)

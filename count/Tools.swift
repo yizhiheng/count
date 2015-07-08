@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+var slala = "123"
+
+
 class Tools {
     
     
@@ -62,3 +65,4 @@ private extension UIColor
         self.init(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
     }
 }
+

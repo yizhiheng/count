@@ -13,6 +13,13 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var minusButton: UIButton!
     
+    @IBOutlet weak var countLabel: UILabel!
+    
+    @IBOutlet weak var contentLabel: UILabel!
+    var taskIndex: Int? {
+        didSet {
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
@@ -23,15 +30,19 @@ class TaskDetailViewController: UIViewController {
         //self.navigationController.navigationBar.barStyle = UIBarStyleBlack
         //
         minusButton.backgroundColor = UIColor.clearColor()
-        minusButton.layer.cornerRadius = 8
+        minusButton.layer.cornerRadius = 20
         minusButton.layer.borderWidth = 0.3
         minusButton.layer.borderColor = UIColor.whiteColor().CGColor
         
         addButton.backgroundColor = UIColor.clearColor()
-        addButton.layer.cornerRadius = 8
+        addButton.layer.cornerRadius = 20
         addButton.layer.borderWidth = 0.3
         addButton.layer.borderColor = UIColor.whiteColor().CGColor
         //UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+        println(tappedTaskIndex)
+        showData()
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,7 +50,11 @@ class TaskDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+    func showData () {
+        countLabel.text = "\(tasks[tappedTaskIndex].count)"
+        contentLabel.text = "\(tasks[tappedTaskIndex].content)..."
+    }
     /*
     // MARK: - Navigation
 
