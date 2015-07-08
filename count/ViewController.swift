@@ -182,6 +182,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         task.index = Int16(tasks.count)
         task.content = content
         task.count = Int16(0)
+        task.startingNumber = Int16(0)
+        task.stepDistance = Int16(1)
         save()
         refresh()
         tableView.reloadData()
@@ -204,9 +206,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBAction func newTaskButtonTapped(sender: UIButton) {
         var alertController:UIAlertController?
-        alertController = UIAlertController(title: "Enter Text", message: "Enter some text below", preferredStyle: .Alert)
+        alertController = UIAlertController(title: "Tell me more...😃", message: "What kind of thing you want to record today?", preferredStyle: .Alert)
         alertController!.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
-            textField.placeholder = "Enter something"
+            textField.placeholder = "simple words description..."
         })
         let submitAction = UIAlertAction(title: "Submit",
             style: UIAlertActionStyle.Default,

@@ -18,7 +18,6 @@ class TableViewCell: UITableViewCell {
     var content: String? {
         didSet {
             contentLabel.text = content
-
         }
     }
     var count: Int? {
@@ -33,6 +32,9 @@ class TableViewCell: UITableViewCell {
         
         addShadow(self, countLabel, contentLabel, addButton, minusButton)
         
+        countLabel.animation = "swing"
+        countLabel.duration = 1.0
+        countLabel.animate()
         
         
     }
@@ -43,10 +45,14 @@ class TableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     @IBAction func addTapped(sender: AnyObject) {
+        
+   
+        
         println("123")
 
     }
 
     @IBAction func minusTapped(sender: AnyObject) {
+        
     }
 }

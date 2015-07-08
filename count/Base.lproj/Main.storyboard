@@ -28,7 +28,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M3U-ow-3or" id="4nf-9f-uQm">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbj-Ni-Frt">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbj-Ni-Frt" customClass="SpringLabel" customModule="count" customModuleProvider="target">
                                                     <rect key="frame" x="250" y="8" width="100" height="66.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="hCs-jx-RQY"/>
@@ -134,7 +134,7 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="tzy-yE-l0M"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WEs-lS-mvS">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WEs-lS-mvS" customClass="SpringButton" customModule="count" customModuleProvider="target">
                                 <rect key="frame" x="275" y="530" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.16078431369999999" green="0.80392156859999997" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -149,6 +149,8 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="25"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="squeezeDown"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="newTaskButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="XjN-y1-0H3"/>
@@ -202,7 +204,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="128" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sR0-Kz-GiY">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="128" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sR0-Kz-GiY" customClass="SpringLabel" customModule="count" customModuleProvider="target">
                                 <rect key="frame" x="16" y="144" width="568" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="6fH-8B-bHH"/>
@@ -372,6 +374,8 @@
                         <outlet property="contentLabel" destination="Q7V-OM-NPZ" id="kQc-Ou-yTI"/>
                         <outlet property="countLabel" destination="sR0-Kz-GiY" id="1Ue-GK-zUv"/>
                         <outlet property="minusButton" destination="rDK-OO-YRe" id="P25-NU-Xh0"/>
+                        <outlet property="startingNumberLabel" destination="tj3-y2-YHq" id="Q6c-dq-xu9"/>
+                        <outlet property="stepDistanceLabel" destination="ZzZ-5j-dna" id="sN7-uX-lyW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q9l-37-vOF" userLabel="First Responder" sceneMemberID="firstResponder"/>

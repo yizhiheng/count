@@ -14,8 +14,10 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var minusButton: UIButton!
     
     @IBOutlet weak var countLabel: SpringLabel!
-    
     @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var startingNumberLabel: UILabel!
+    @IBOutlet weak var stepDistanceLabel: UILabel!
+    
     var taskIndex: Int? {
         didSet {
         }
@@ -40,6 +42,8 @@ class TaskDetailViewController: UIViewController {
         addButton.layer.borderColor = UIColor.whiteColor().CGColor
         //UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
         println(tappedTaskIndex)
+
+        
         showData()
         
         
@@ -47,20 +51,23 @@ class TaskDetailViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
     func showData () {
         countLabel.text = "\(tasks[tappedTaskIndex].count)"
         contentLabel.text = "\(tasks[tappedTaskIndex].content)..."
+        startingNumberLabel.text = "\(tasks[tappedTaskIndex].startingNumber)"
+        stepDistanceLabel.text = "\(tasks[tappedTaskIndex].stepDistance)"
     }
     
     
     
     @IBAction func addTapped(sender: UIButton) {
         updateStoredItem(tasks[tappedTaskIndex], Flag.add)
-
+        countLabel.animation = "pop"
+        countLabel.duration = 0.5
+        countLabel.animate()
         showData()
     }
     @IBAction func minusTapped(sender: UIButton) {

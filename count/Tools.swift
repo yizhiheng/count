@@ -36,12 +36,11 @@ class Tools {
 
 func updateStoredItem (task: Task, flag: Flag) {
     switch flag {
-    case .add: task.count += 1
+    case .add: task.count += task.stepDistance
     case .minus:
-        if task.count == 0 {
+        task.count -= task.stepDistance
+        if task.count < 0 {
             task.count = 0
-        } else {
-            task.count -= 1
         }
     default: ()
     }
