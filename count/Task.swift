@@ -15,4 +15,5 @@ class Task: NSManagedObject {
     @NSManaged var count: Int16
     @NSManaged var stepDistance: Int16
     @NSManaged var startingNumber: Int16
+    @NSManaged var bgColor: Int16
 }

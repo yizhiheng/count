@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		813B018B1B4B1EEE00BF6B2F /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B018A1B4B1EEE00BF6B2F /* TaskDetailViewController.swift */; };
 		813B01951B4C7E3B00BF6B2F /* MenuControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B01941B4C7E3B00BF6B2F /* MenuControl.swift */; };
+		81655B371B4DB9A200278976 /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81655B361B4DB9A200278976 /* SCLAlertView.swift */; };
 		81BAF6D91B4CCD8100C71F3A /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BAF6BB1B4CCD8100C71F3A /* AsyncButton.swift */; };
 		81BAF6DA1B4CCD8100C71F3A /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BAF6BC1B4CCD8100C71F3A /* AsyncImageView.swift */; };
 		81BAF6DB1B4CCD8100C71F3A /* AutoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BAF6BD1B4CCD8100C71F3A /* AutoTextView.swift */; };
@@ -63,6 +64,7 @@
 /* Begin PBXFileReference section */
 		813B018A1B4B1EEE00BF6B2F /* TaskDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		813B01941B4C7E3B00BF6B2F /* MenuControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuControl.swift; sourceTree = "<group>"; };
+		81655B361B4DB9A200278976 /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
 		81BAF6BB1B4CCD8100C71F3A /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
 		81BAF6BC1B4CCD8100C71F3A /* AsyncImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		81BAF6BD1B4CCD8100C71F3A /* AutoTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTextView.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 		81625DD71B4B1CA2009AB6F9 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				81655B361B4DB9A200278976 /* SCLAlertView.swift */,
 				81BAF6BA1B4CCD8100C71F3A /* Spring */,
 				813B01941B4C7E3B00BF6B2F /* MenuControl.swift */,
 			);
@@ -176,7 +179,7 @@
 		81E1FA661B488B0B000386EE = {
 			isa = PBXGroup;
 			children = (
-				81E1FA711B488B0B000386EE /* count */,
+				81E1FA711B488B0B000386EE /* knots */,
 				81E1FA8A1B488B0B000386EE /* countTests */,
 				81E1FA701B488B0B000386EE /* Products */,
 			);
@@ -191,7 +194,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		81E1FA711B488B0B000386EE /* count */ = {
+		81E1FA711B488B0B000386EE /* knots */ = {
 			isa = PBXGroup;
 			children = (
 				81E1FA741B488B0B000386EE /* AppDelegate.swift */,
@@ -204,6 +207,7 @@
 				81625DD71B4B1CA2009AB6F9 /* ThirdParty */,
 				81E1FA721B488B0B000386EE /* Supporting Files */,
 			);
+			name = knots;
 			path = count;
 			sourceTree = "<group>";
 		};
@@ -360,6 +364,7 @@
 				81BAF6E61B4CCD8100C71F3A /* KeyboardLayoutConstraint.swift in Sources */,
 				81BAF6EC1B4CCD8100C71F3A /* SpringAnimation.swift in Sources */,
 				81BAF6E91B4CCD8100C71F3A /* Misc.swift in Sources */,
+				81655B371B4DB9A200278976 /* SCLAlertView.swift in Sources */,
 				81BAF6F31B4CCD8100C71F3A /* TransitionManager.swift in Sources */,
 				81BAF6DE1B4CCD8100C71F3A /* DesignableImageView.swift in Sources */,
 				81E1FA751B488B0B000386EE /* AppDelegate.swift in Sources */,

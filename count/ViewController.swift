@@ -81,14 +81,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
         return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
         return tasks.count
     }
     
@@ -101,7 +97,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.minusButton.addTarget(self, action: "minusTapped:", forControlEvents: .TouchUpInside)
         cell.content = tasks[indexPath.row].content
         cell.count = Int(tasks[indexPath.row].count)
-        cell.backgroundColor = Tools().colorsForCell()[indexPath.row]
+        cell.backgroundColor = bgColors[Int(tasks[indexPath.row].bgColor)]
         return cell
     }
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -114,10 +110,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
+    
+    //移动了任务的上下顺序
     func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
         changeIndex(fromIndexPath.row, to: toIndexPath.row)
         refresh()
-        //tableView.reloadData()
+        tableView.reloadData()
         
     }
     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -132,16 +130,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        
-//        var detailViewController = segue.destinationViewController as! TaskDetailViewController;
-//        detailViewController.taskIndex = 10
-    }
     
     func addTapped (sender: UIButton) {
         if sender.tag < tasks.count {
             updateStoredItem(tasks[sender.tag], Flag.add)
-            self.tableView.reloadData()
+            //tableView?.reloadRowsAtIndexPaths(NSIndexPath(forRow: sender.tag, inSection: 0), withRowAnimation: UITableViewRowAnimation.Fade)
+            var indexPath = NSIndexPath(forRow:sender.tag,inSection:0)
+            self.tableView?.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+            //self.tableView.reloadData()
         } else {
             println("error")
         }
@@ -189,13 +185,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         task.count = Int16(0)
         task.startingNumber = Int16(0)
         task.stepDistance = Int16(1)
+        
+        var tt = Int(arc4random_uniform(UInt32(bgColors.count - 1)))
+        task.bgColor = Int16(tt)
+        
         save()
+        refresh()
+        tableView.reloadData()
         
-        
-        var row = tasks.count
-        var indexPath = NSIndexPath(forRow:row,inSection:0)
-        tasks.append(task)
-        self.tableView?.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Top)
+//        var row = tasks.count
+//        var indexPath = NSIndexPath(forRow:row,inSection:0)
+//        tasks.append(task)
+//        self.tableView?.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Top)
         
     }
     
@@ -219,30 +220,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @IBAction func newTaskButtonTapped(sender: UIButton) {
-        var alertController:UIAlertController?
-        alertController = UIAlertController(title: "Tell me more...😃", message: "What kind of thing you want to record today?", preferredStyle: .Alert)
-        alertController!.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
-            textField.placeholder = "simple words description..."
-        })
-        let submitAction = UIAlertAction(title: "Submit",
-            style: UIAlertActionStyle.Default,
-            handler: {(paramAction:UIAlertAction!) in
-                if let textFields = alertController?.textFields {
-                    let theTextFields = textFields as! [UITextField]
-                    let enteredText = theTextFields[0].text
-                    if enteredText != "" {
-                        self.addNewTask(enteredText)
-                    }
-                }
-            }
-        )
-        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
-            //Do nothing
-        }
-        alertController?.addAction(submitAction)
-        alertController?.addAction(cancelAction)
         
-        self.presentViewController(alertController!, animated: true, completion: nil)
+        
+        let alert = SCLAlertView()
+        let txt = alert.addTextField(title:"simple words to describe me...")
+        alert.addButton("Submit") {
+            if txt.text != "" {
+                self.addNewTask(txt.text)
+            }
+        }
+        alert.showEdit("New task...", subTitle:"What kind of thing you want to record today?")
+        
     }
     
 }

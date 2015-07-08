@@ -22,6 +22,11 @@ class TaskDetailViewController: UIViewController {
         didSet {
         }
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -72,6 +77,27 @@ class TaskDetailViewController: UIViewController {
         showData()
     }
 
+    @IBAction func settingButtonTapped(sender: UIBarButtonItem) {
+        let alert = SCLAlertView()
+        let startingNumber = alert.addTextField(title:"new starting number...")
+        let stepDistance = alert.addTextField(title:"new step distance...")
+        startingNumber.keyboardType = UIKeyboardType.NumberPad
+        stepDistance.keyboardType = UIKeyboardType.NumberPad
+        
+        alert.addButton("Submit") {
+            if startingNumber.text != "" {
+                tasks[tappedTaskIndex].startingNumber = Int16(startingNumber.text.toInt()!)
+                tasks[tappedTaskIndex].count = tasks[tappedTaskIndex].startingNumber
+            }
+            
+            if stepDistance.text != "" {
+                tasks[tappedTaskIndex].stepDistance = Int16(stepDistance.text.toInt()!)
+            }
+            save()
+            self.showData()
+        }
+        alert.showEdit("New task...", subTitle:"What kind of thing you want to record today?")
+    }
     /*
     // MARK: - Navigation
 

@@ -9,6 +9,13 @@
 import Foundation
 import UIKit
 
+let bgColors: [UIColor] = [
+    UIColor(red: 247, green: 216, blue: 101),
+    UIColor(red: 94, green: 195, blue: 184),
+    UIColor(red: 244, green: 123, blue: 106),
+    UIColor(red: 209, green: 220, blue: 224),
+]
+
 class Tools {
     
     
@@ -22,15 +29,7 @@ class Tools {
     }
     
     
-    func colorsForCell () -> [UIColor] {
-        let colors = [
-            UIColor(red: 247, green: 216, blue: 101),
-            UIColor(red: 94, green: 195, blue: 184),
-            UIColor(red: 244, green: 123, blue: 106),
-            UIColor(red: 209, green: 220, blue: 224),
-        ]
-        return colors
-    }
+
 }
 
 

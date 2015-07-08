@@ -391,7 +391,13 @@
                             <constraint firstItem="lIQ-2w-aOk" firstAttribute="bottom" secondItem="uj6-v9-zhg" secondAttribute="bottom" id="z6j-gQ-vbQ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Yj5-Bw-qwB"/>
+                    <navigationItem key="navigationItem" id="Yj5-Bw-qwB">
+                        <barButtonItem key="rightBarButtonItem" image="setting" id="osl-FK-NtD">
+                            <connections>
+                                <action selector="settingButtonTapped:" destination="V4r-fT-7NN" id="gZD-wO-MRi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="Y7f-wK-16M" id="EHA-1P-pxo"/>
                         <outlet property="contentLabel" destination="Q7V-OM-NPZ" id="kQc-Ou-yTI"/>
@@ -427,5 +433,6 @@
     </scenes>
     <resources>
         <image name="calculator" width="64" height="64"/>
+        <image name="setting" width="32" height="32"/>
     </resources>
 </document>

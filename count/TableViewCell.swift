@@ -31,9 +31,8 @@ class TableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         addShadow(self, countLabel, contentLabel, addButton, minusButton)
-        
         countLabel.animation = "swing"
-        countLabel.duration = 1.0
+        countLabel.duration = 0.8
         countLabel.animate()
         
         
@@ -46,9 +45,7 @@ class TableViewCell: UITableViewCell {
     }
     @IBAction func addTapped(sender: AnyObject) {
         
-   
-        
-        println("123")
+
 
     }
 
