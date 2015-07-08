@@ -117,7 +117,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
         changeIndex(fromIndexPath.row, to: toIndexPath.row)
         refresh()
-        tableView.reloadData()
+        //tableView.reloadData()
         
     }
     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -190,8 +190,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         task.startingNumber = Int16(0)
         task.stepDistance = Int16(1)
         save()
-        refresh()
-        tableView.reloadData()
+        
+        
+        var row = tasks.count
+        var indexPath = NSIndexPath(forRow:row,inSection:0)
+        tasks.append(task)
+        self.tableView?.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Top)
+        
     }
     
     func refresh () -> Bool {
@@ -208,6 +213,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     
+    @IBAction func editButtonTapped(sender: AnyObject) {
+        
+        self.tableView.setEditing(!tableView.editing, animated: true)
+    }
     
     @IBAction func newTaskButtonTapped(sender: UIButton) {
         var alertController:UIAlertController?
