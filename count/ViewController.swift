@@ -17,11 +17,7 @@ enum Flag {
 let fetchRequest = NSFetchRequest(entityName:"Task")
 let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
 
-var tasks = [Task]() {
-didSet {
-    
-}
-}
+var tasks = [Task]()
 var tappedTaskIndex: Int = 0
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -91,6 +87,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("task", forIndexPath: indexPath) as! TableViewCell
+        cell.countLabel.tag = indexPath.row
         cell.addButton.tag = indexPath.row
         cell.minusButton.tag = indexPath.row
         cell.addButton.addTarget(self, action: "addTapped:", forControlEvents: .TouchUpInside)
@@ -134,10 +131,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func addTapped (sender: UIButton) {
         if sender.tag < tasks.count {
             updateStoredItem(tasks[sender.tag], Flag.add)
-            //tableView?.reloadRowsAtIndexPaths(NSIndexPath(forRow: sender.tag, inSection: 0), withRowAnimation: UITableViewRowAnimation.Fade)
             var indexPath = NSIndexPath(forRow:sender.tag,inSection:0)
-            self.tableView?.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
-            //self.tableView.reloadData()
+            //self.tableView?.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+            self.tableView.reloadData()
         } else {
             println("error")
         }
@@ -186,16 +182,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         task.startingNumber = Int16(0)
         task.stepDistance = Int16(1)
         
-        var tt = Int(arc4random_uniform(UInt32(bgColors.count - 1)))
-        task.bgColor = Int16(tt)
+        if let lastTask = tasks.last {
+            let lastBgColor = lastTask.bgColor
+            if Int(lastBgColor) >= bgColors.count - 1 {
+                task.bgColor = 0
+            } else {
+                task.bgColor = lastBgColor + 1
+            }
+            
+        }
+//        var tt = Int(arc4random_uniform(UInt32(bgColors.count - 1)))
+//        task.bgColor = Int16(tt)
         
         save()
-        refresh()
+        tasks.append(task)
         tableView.reloadData()
         
 //        var row = tasks.count
 //        var indexPath = NSIndexPath(forRow:row,inSection:0)
-//        tasks.append(task)
+//
 //        self.tableView?.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Top)
         
     }

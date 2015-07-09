@@ -30,7 +30,8 @@ class TableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        addShadow(self, countLabel, contentLabel, addButton, minusButton)
+        println("new")
+        addShadow(countLabel, contentLabel, addButton, minusButton)
         countLabel.animation = "swing"
         countLabel.duration = 0.8
         countLabel.animate()
@@ -45,7 +46,10 @@ class TableViewCell: UITableViewCell {
     }
     @IBAction func addTapped(sender: AnyObject) {
         
-
+        addShadow(countLabel, contentLabel, addButton, minusButton)
+        countLabel.animation = "swing"
+        countLabel.duration = 0.8
+        countLabel.animate()
 
     }
 

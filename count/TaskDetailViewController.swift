@@ -25,6 +25,7 @@ class TaskDetailViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
+        self.view.backgroundColor = bgColors[Int(tasks[tappedTaskIndex].bgColor)]
 
     }
     override func viewDidLoad() {
@@ -43,7 +44,7 @@ class TaskDetailViewController: UIViewController {
         addButton.layer.borderWidth = 0.3
         addButton.layer.borderColor = UIColor.whiteColor().CGColor
         //UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
-        println(tappedTaskIndex)
+        println("Show Detail of task: \(tappedTaskIndex)")
 
         
         showData()
