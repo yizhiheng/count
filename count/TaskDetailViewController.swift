@@ -18,6 +18,8 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var startingNumberLabel: UILabel!
     @IBOutlet weak var stepDistanceLabel: UILabel!
     
+    @IBOutlet weak var startingNumberIndicateLabel: UILabel!
+    
     var taskIndex: Int? {
         didSet {
         }
@@ -30,7 +32,7 @@ class TaskDetailViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        startingNumberIndicateLabel.sizeToFit()
         
         //self.navigationController.navigationBar.barStyle = UIBarStyleBlack
         //
