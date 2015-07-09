@@ -32,7 +32,7 @@ class TaskDetailViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        startingNumberIndicateLabel.sizeToFit()
+        countLabel.adjustsFontSizeToFitWidth = true
         
         //self.navigationController.navigationBar.barStyle = UIBarStyleBlack
         //
