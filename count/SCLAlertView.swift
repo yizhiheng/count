@@ -68,7 +68,7 @@ let kCircleHeightBackground: CGFloat = 62.0
 // The Main Class
 public class SCLAlertView: UIViewController {
     
-    var state = true
+    var isGoingToDismiss = true
     
     let kDefaultShadowOpacity: CGFloat = 0.7
     let kCircleTopPosition: CGFloat = -12.0
@@ -267,7 +267,7 @@ public class SCLAlertView: UIViewController {
         } else {
             println("Unknow action type for button")
         }
-        if state {
+        if isGoingToDismiss {
             hideView()
         }
         

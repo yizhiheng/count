@@ -218,22 +218,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
 
-    
     @IBAction func editButtonTapped(sender: AnyObject) {
-        
         self.tableView.setEditing(!tableView.editing, animated: true)
     }
     
     @IBAction func newTaskButtonTapped(sender: UIButton) {
         
-    
         let alert = SCLAlertView()
         let txt = alert.addTextField(title:"simple words to describe me...")
         alert.addButton("Submit") {
+            alert.isGoingToDismiss = true
             if txt.text != "" {
                 self.addNewTask(txt.text)
+                //alert.state = true
             } else {
-                alert.state = false
+                alert.isGoingToDismiss = false
                 alert.viewText.text = "Oops! Something goes wrong. Please try again."
                 alert.viewText.textColor = UIColor.redColor()
                 alert.viewText.animation = "shake"

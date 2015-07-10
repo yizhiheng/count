@@ -7,12 +7,10 @@
 //
 
 import UIKit
-
 class TaskDetailViewController: UIViewController {
 
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var minusButton: UIButton!
-    
     @IBOutlet weak var countLabel: SpringLabel!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var startingNumberLabel: UILabel!
@@ -60,15 +58,11 @@ class TaskDetailViewController: UIViewController {
     
     
     func showData () {
-        countLabel.animation = "pop"
-        countLabel.duration = 0.5
-        countLabel.animate()
         countLabel.text = "\(tasks[tappedTaskIndex].count)"
         contentLabel.text = "\(tasks[tappedTaskIndex].content)..."
         startingNumberLabel.text = "\(tasks[tappedTaskIndex].startingNumber)"
         stepDistanceLabel.text = "\(tasks[tappedTaskIndex].stepDistance)"
     }
-    
     
     
     @IBAction func addTapped(sender: UIButton) {
@@ -94,15 +88,16 @@ class TaskDetailViewController: UIViewController {
         stepDistance.keyboardType = UIKeyboardType.NumberPad
         
         alert.addButton("Submit") {
-            if startingNumber.text != "" || stepDistance.text != ""{
-                
+            alert.isGoingToDismiss = true
+            var stateChanged = false
+            if startingNumber.text != "" {
                 if fitInt32(startingNumber.text) {
-                    if startingNumber.text.toInt() >= 0 {
                         tasks[tappedTaskIndex].startingNumber = Int32(startingNumber.text.toInt()!)
                         tasks[tappedTaskIndex].count = tasks[tappedTaskIndex].startingNumber
-                    }
+                        stateChanged = true
+
                 } else {
-                    alert.state = false
+                    alert.isGoingToDismiss = false
                     alert.viewText.text = "Oops! Starting # goes wrong. Please try again."
                     alert.viewText.textColor = UIColor.redColor()
                     alert.viewText.animation = "shake"
@@ -110,13 +105,14 @@ class TaskDetailViewController: UIViewController {
                     alert.viewText.duration = 1.0
                     alert.viewText.animate()
                 }
-                
-                if fitInt32(stepDistance.text){
-                    if stepDistance.text.toInt()! > 0 {
-                        tasks[tappedTaskIndex].stepDistance = Int32(stepDistance.text.toInt()!)
-                    }
+            }
+            
+            if stepDistance.text != "" {
+                if fitInt32(stepDistance.text) {
+                    tasks[tappedTaskIndex].stepDistance = Int32(stepDistance.text.toInt()!)
+                    stateChanged = true
                 } else {
-                    alert.state = false
+                    alert.isGoingToDismiss = false
                     alert.viewText.text = "Oops! step distance goes wrong. Please try again."
                     alert.viewText.textColor = UIColor.redColor()
                     alert.viewText.animation = "shake"
@@ -124,21 +120,17 @@ class TaskDetailViewController: UIViewController {
                     alert.viewText.duration = 1.0
                     alert.viewText.animate()
                 }
-                
+            
+            }
+            
+            if stateChanged {
                 save()
                 self.showData()
             }
+            
         }
         alert.showEdit("Change numbers...", subTitle:"Which # you want to modify?")
+        
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
