@@ -226,12 +226,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBAction func newTaskButtonTapped(sender: UIButton) {
         
-        
+    
         let alert = SCLAlertView()
         let txt = alert.addTextField(title:"simple words to describe me...")
         alert.addButton("Submit") {
             if txt.text != "" {
                 self.addNewTask(txt.text)
+            } else {
+                alert.state = false
+                alert.viewText.text = "Oops! Something goes wrong. Please try again."
+                alert.viewText.textColor = UIColor.redColor()
+                alert.viewText.animation = "shake"
+                alert.viewText.curve = "spring"
+                alert.viewText.duration = 1.0
+                alert.viewText.animate()
             }
         }
         alert.showEdit("New task...", subTitle:"What kind of thing you want to record today?")

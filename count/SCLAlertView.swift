@@ -67,6 +67,9 @@ let kCircleHeightBackground: CGFloat = 62.0
 
 // The Main Class
 public class SCLAlertView: UIViewController {
+    
+    var state = true
+    
     let kDefaultShadowOpacity: CGFloat = 0.7
     let kCircleTopPosition: CGFloat = -12.0
     let kCircleBackgroundTopPosition: CGFloat = -15.0
@@ -92,7 +95,7 @@ public class SCLAlertView: UIViewController {
     // Members declaration
     var baseView = UIView()
     var labelTitle = UILabel()
-    var viewText = UITextView()
+    var viewText = SpringTextView()
     var contentView = UIView()
     var circleBG = UIView(frame:CGRect(x:0, y:0, width:kCircleHeightBackground, height:kCircleHeightBackground))
     var circleView = UIView()
@@ -260,10 +263,14 @@ public class SCLAlertView: UIViewController {
         } else if btn.actionType == SCLActionType.Selector {
             let ctrl = UIControl()
             ctrl.sendAction(btn.selector, to:btn.target, forEvent:nil)
+            return
         } else {
             println("Unknow action type for button")
         }
-        hideView()
+        if state {
+            hideView()
+        }
+        
     }
     
     
@@ -273,7 +280,7 @@ public class SCLAlertView: UIViewController {
         var brightness : CGFloat = 0
         var alpha : CGFloat = 0
         btn.backgroundColor?.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
-        //brightness = brightness * CGFloat(pressBrightness)
+        brightness = brightness * CGFloat(pressBrightnessFactor)
         btn.backgroundColor = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
     }
     
@@ -316,7 +323,7 @@ public class SCLAlertView: UIViewController {
         return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Wait, colorStyle: colorStyle, colorTextButton: colorTextButton)
     }
     
-    public func showEdit(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=0xA429FF, colorTextButton: UInt=0xFFFFFF) -> SCLAlertViewResponder {
+    public func showEdit(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=0x2866BF, colorTextButton: UInt=0xFFFFFF) -> SCLAlertViewResponder {
         return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Edit, colorStyle: colorStyle, colorTextButton: colorTextButton)
     }
     
@@ -438,6 +445,7 @@ public class SCLAlertView: UIViewController {
     
     // Close SCLAlertView
     public func hideView() {
+        println("hide")
         UIView.animateWithDuration(0.2, animations: {
             self.view.alpha = 0
             }, completion: { finished in

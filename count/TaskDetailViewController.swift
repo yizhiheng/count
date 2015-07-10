@@ -77,6 +77,9 @@ class TaskDetailViewController: UIViewController {
     }
     @IBAction func minusTapped(sender: UIButton) {
         updateStoredItem(tasks[tappedTaskIndex], Flag.minus)
+        countLabel.animation = "pop"
+        countLabel.duration = 0.5
+        countLabel.animate()
         showData()
     }
 
@@ -99,7 +102,7 @@ class TaskDetailViewController: UIViewController {
             save()
             self.showData()
         }
-        alert.showEdit("New task...", subTitle:"What kind of thing you want to record today?")
+        alert.showEdit("Change numbers...", subTitle:"Which # you want to modify?")
     }
     /*
     // MARK: - Navigation
