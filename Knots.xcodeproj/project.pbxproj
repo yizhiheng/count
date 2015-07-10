@@ -95,6 +95,7 @@
 		81BAF6D61B4CCD8100C71F3A /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		81BAF6D71B4CCD8100C71F3A /* TransitionZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionZoom.swift; sourceTree = "<group>"; };
 		81BAF6D81B4CCD8100C71F3A /* UnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnwindSegue.swift; sourceTree = "<group>"; };
+		81D349611B4F54D5008C9789 /* ProgramLogicTest.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ProgramLogicTest.playground; sourceTree = "<group>"; };
 		81E1FA6F1B488B0B000386EE /* Knots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Knots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81E1FA731B488B0B000386EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81E1FA741B488B0B000386EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -179,6 +180,7 @@
 		81E1FA661B488B0B000386EE = {
 			isa = PBXGroup;
 			children = (
+				81D349611B4F54D5008C9789 /* ProgramLogicTest.playground */,
 				81E1FA711B488B0B000386EE /* knots */,
 				81E1FA8A1B488B0B000386EE /* countTests */,
 				81E1FA701B488B0B000386EE /* Products */,

@@ -60,6 +60,9 @@ class TaskDetailViewController: UIViewController {
     
     
     func showData () {
+        countLabel.animation = "pop"
+        countLabel.duration = 0.5
+        countLabel.animate()
         countLabel.text = "\(tasks[tappedTaskIndex].count)"
         contentLabel.text = "\(tasks[tappedTaskIndex].content)..."
         startingNumberLabel.text = "\(tasks[tappedTaskIndex].startingNumber)"
@@ -91,16 +94,40 @@ class TaskDetailViewController: UIViewController {
         stepDistance.keyboardType = UIKeyboardType.NumberPad
         
         alert.addButton("Submit") {
-            if startingNumber.text != "" {
-                tasks[tappedTaskIndex].startingNumber = Int16(startingNumber.text.toInt()!)
-                tasks[tappedTaskIndex].count = tasks[tappedTaskIndex].startingNumber
+            if startingNumber.text != "" || stepDistance.text != ""{
+                
+                if fitInt32(startingNumber.text) {
+                    if startingNumber.text.toInt() >= 0 {
+                        tasks[tappedTaskIndex].startingNumber = Int32(startingNumber.text.toInt()!)
+                        tasks[tappedTaskIndex].count = tasks[tappedTaskIndex].startingNumber
+                    }
+                } else {
+                    alert.state = false
+                    alert.viewText.text = "Oops! Starting # goes wrong. Please try again."
+                    alert.viewText.textColor = UIColor.redColor()
+                    alert.viewText.animation = "shake"
+                    alert.viewText.curve = "spring"
+                    alert.viewText.duration = 1.0
+                    alert.viewText.animate()
+                }
+                
+                if fitInt32(stepDistance.text){
+                    if stepDistance.text.toInt()! > 0 {
+                        tasks[tappedTaskIndex].stepDistance = Int32(stepDistance.text.toInt()!)
+                    }
+                } else {
+                    alert.state = false
+                    alert.viewText.text = "Oops! step distance goes wrong. Please try again."
+                    alert.viewText.textColor = UIColor.redColor()
+                    alert.viewText.animation = "shake"
+                    alert.viewText.curve = "spring"
+                    alert.viewText.duration = 1.0
+                    alert.viewText.animate()
+                }
+                
+                save()
+                self.showData()
             }
-            
-            if stepDistance.text != "" {
-                tasks[tappedTaskIndex].stepDistance = Int16(stepDistance.text.toInt()!)
-            }
-            save()
-            self.showData()
         }
         alert.showEdit("Change numbers...", subTitle:"Which # you want to modify?")
     }

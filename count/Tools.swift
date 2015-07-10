@@ -61,6 +61,16 @@ func addShadow(objects: AnyObject...) {
     }
 }
 
+func fitInt32 (text: String) -> Bool {
+    if text.toInt() != nil {
+        let intNum = text.toInt()
+        if intNum >= 0 && intNum <= 2147483647 {
+            return true
+        }
+    }
+    return false
+}
+
 private extension UIColor
 {
     convenience init(red: Int, green: Int, blue: Int)

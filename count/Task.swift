@@ -10,10 +10,10 @@ import Foundation
 import CoreData
 
 class Task: NSManagedObject {
-    @NSManaged var index: Int16
+    @NSManaged var index: Int32
     @NSManaged var content: String
-    @NSManaged var count: Int16
-    @NSManaged var stepDistance: Int16
-    @NSManaged var startingNumber: Int16
-    @NSManaged var bgColor: Int16
+    @NSManaged var count: Int32
+    @NSManaged var stepDistance: Int32
+    @NSManaged var startingNumber: Int32
+    @NSManaged var bgColor: Int32
 }

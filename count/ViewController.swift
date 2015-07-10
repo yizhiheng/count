@@ -149,25 +149,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func changeIndex (from: Int, to: Int) {
         for task in tasks {
             if from > to {
-                if task.index >= Int16(to) && task.index < Int16(from) {
+                if task.index >= Int32(to) && task.index < Int32(from) {
                     task.index++
                 }
             }
             if from < to {
-                if task.index > Int16(from) && task.index <= Int16(to) {
+                if task.index > Int32(from) && task.index <= Int32(to) {
                     task.index--
                 }
                 
             }
         }
-        tasks[from].index = Int16(to)
+        tasks[from].index = Int32(to)
         save()
     }
     func deleteTaskAtIndex (index: Int) {
         managedObjectContext.deleteObject(tasks[index])
         tasks.removeAtIndex(index)
         for task in tasks {
-            if task.index > Int16(index) {
+            if task.index > Int32(index) {
                 task.index -= 1
             }
         }
@@ -176,11 +176,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func addNewTask (content: String) {
         let entity =  NSEntityDescription.entityForName("Task", inManagedObjectContext: managedObjectContext)
         let task = Task(entity: entity!, insertIntoManagedObjectContext: managedObjectContext)
-        task.index = Int16(tasks.count)
+        task.index = Int32(tasks.count)
         task.content = content
-        task.count = Int16(0)
-        task.startingNumber = Int16(0)
-        task.stepDistance = Int16(1)
+        task.count = Int32(0)
+        task.startingNumber = Int32(0)
+        task.stepDistance = Int32(1)
         
         if let lastTask = tasks.last {
             let lastBgColor = lastTask.bgColor
