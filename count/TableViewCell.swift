@@ -26,7 +26,6 @@ class TableViewCell: UITableViewCell {
 
         }
     }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -35,10 +34,7 @@ class TableViewCell: UITableViewCell {
         countLabel.animation = "swing"
         countLabel.duration = 0.8
         countLabel.animate()
-        
-        
     }
-
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -52,7 +48,6 @@ class TableViewCell: UITableViewCell {
         countLabel.animate()
 
     }
-
     @IBAction func minusTapped(sender: AnyObject) {
         
     }

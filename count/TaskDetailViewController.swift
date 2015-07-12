@@ -9,14 +9,16 @@
 import UIKit
 class TaskDetailViewController: UIViewController {
 
+    @IBOutlet weak var taskIcon: SpringImageView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var minusButton: UIButton!
     @IBOutlet weak var countLabel: SpringLabel!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var startingNumberLabel: UILabel!
     @IBOutlet weak var stepDistanceLabel: UILabel!
-    
     @IBOutlet weak var startingNumberIndicateLabel: UILabel!
+
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var taskIndex: Int? {
         didSet {
@@ -46,7 +48,7 @@ class TaskDetailViewController: UIViewController {
         //UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
         println("Show Detail of task: \(tappedTaskIndex)")
 
-        
+        setScrollView()
         showData()
         
         
@@ -64,6 +66,45 @@ class TaskDetailViewController: UIViewController {
         stepDistanceLabel.text = "\(tasks[tappedTaskIndex].stepDistance)"
     }
     
+    func setScrollView () {
+        scrollView.pagingEnabled = true
+        scrollView.bounces = true
+        scrollView.clipsToBounds = false
+        
+        let buttonLength: CGFloat = 30
+        let buttonsCountInPage: CGFloat = 8
+        let viewWidth = self.view.frame.width
+        var contentLength: CGFloat?
+        var buttonPadding: CGFloat = (viewWidth - buttonLength * CGFloat(buttonsCountInPage)) / (buttonsCountInPage + 1)
+
+        let yPosition = scrollView.frame.height / 2 - buttonLength / 2
+        var xPosition: CGFloat = 0
+        
+        for i in 1...10 {
+            
+            var newButton = UIButton(frame: CGRectMake(CGFloat(xPosition), yPosition, buttonLength, buttonLength))
+            newButton.setImage(UIImage(named: "calculator"), forState: UIControlState.Normal)
+            newButton.restorationIdentifier = "calculator"
+            newButton.addTarget(self, action: "iconButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
+            
+            scrollView.addSubview(newButton)
+            xPosition += buttonPadding
+            xPosition += buttonLength
+        }
+        contentLength = xPosition + buttonPadding
+        scrollView.contentSize = CGSize(width: contentLength!, height: 40)
+        
+        
+        
+    }
+    func iconButtonTapped (sender: UIButton) {
+        let imageName = sender.restorationIdentifier!
+        taskIcon.image = UIImage(named: imageName)
+        taskIcon.animation = "squeezeUp"
+        taskIcon.curve = "spring"
+        taskIcon.duration = 1.0
+        taskIcon.animate()
+    }
     
     @IBAction func addTapped(sender: UIButton) {
         updateStoredItem(tasks[tappedTaskIndex], Flag.add)
@@ -130,7 +171,8 @@ class TaskDetailViewController: UIViewController {
             
         }
         alert.showEdit("Change numbers...", subTitle:"Which # you want to modify?")
-        
     }
+
+    
 
 }
