@@ -10,6 +10,7 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
     
+    @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var countLabel: SpringLabel!
     @IBOutlet weak var addButton: UIButton!
@@ -41,12 +42,10 @@ class TableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     @IBAction func addTapped(sender: AnyObject) {
-        
         addShadow(countLabel, contentLabel, addButton, minusButton)
         countLabel.animation = "swing"
         countLabel.duration = 0.8
         countLabel.animate()
-
     }
     @IBAction func minusTapped(sender: AnyObject) {
         

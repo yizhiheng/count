@@ -92,6 +92,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.minusButton.tag = indexPath.row
         cell.addButton.addTarget(self, action: "addTapped:", forControlEvents: .TouchUpInside)
         cell.minusButton.addTarget(self, action: "minusTapped:", forControlEvents: .TouchUpInside)
+        cell.iconImageView.image = UIImage(named: tasks[indexPath.row].icon)
         cell.content = tasks[indexPath.row].content
         cell.count = Int(tasks[indexPath.row].count)
         cell.backgroundColor = bgColors[Int(tasks[indexPath.row].bgColor)]
@@ -116,15 +117,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
         return true
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
         tappedTaskIndex = indexPath.row
         self.performSegueWithIdentifier("showDetailSegue", sender: nil)
-        
     }
     
     
@@ -181,6 +179,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         task.count = Int32(0)
         task.startingNumber = Int32(0)
         task.stepDistance = Int32(1)
+        task.icon = "car"    //default icon
         
         if let lastTask = tasks.last {
             let lastBgColor = lastTask.bgColor

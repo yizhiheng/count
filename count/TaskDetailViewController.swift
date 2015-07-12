@@ -67,6 +67,9 @@ class TaskDetailViewController: UIViewController {
     }
     
     func setScrollView () {
+        
+        let iconNameArray =  ["anchor", "booklet", "caution", "cruise", "gamecontroller", "hourglass", "paintroller", "rainbow", "spaceshuttle", "tractor", "art", "briefcase", "chat", "denied", "gas", "lightbulb", "parachute", "recycle", "stack", "travelerbag", "bike", "brightness", "check", "fashion", "hazard", "megaphone2", "phone", "ribbon", "star", "ufo", "blimp", "browser", "compass", "flame", "heart", "merge", "plane", "rocket", "submarine", "unlocked", "bolt", "car", "compose", "flash", "helicopter", "microphone", "present", "running", "support", "windy", "bomb", "cart", "countdown", "flower", "hotair", "motorcycle", "racingflags", "shop", "tools", "x"]
+
         scrollView.pagingEnabled = true
         scrollView.bounces = true
         scrollView.clipsToBounds = false
@@ -80,11 +83,11 @@ class TaskDetailViewController: UIViewController {
         let yPosition = scrollView.frame.height / 2 - buttonLength / 2
         var xPosition: CGFloat = 0
         
-        for i in 1...10 {
+        for name in iconNameArray {
             
             var newButton = UIButton(frame: CGRectMake(CGFloat(xPosition), yPosition, buttonLength, buttonLength))
-            newButton.setImage(UIImage(named: "calculator"), forState: UIControlState.Normal)
-            newButton.restorationIdentifier = "calculator"
+            newButton.setImage(UIImage(named: name), forState: UIControlState.Normal)
+            newButton.restorationIdentifier = name
             newButton.addTarget(self, action: "iconButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
             
             scrollView.addSubview(newButton)
@@ -99,6 +102,8 @@ class TaskDetailViewController: UIViewController {
     }
     func iconButtonTapped (sender: UIButton) {
         let imageName = sender.restorationIdentifier!
+        tasks[tappedTaskIndex].icon = imageName
+        save()
         taskIcon.image = UIImage(named: imageName)
         taskIcon.animation = "squeezeUp"
         taskIcon.curve = "spring"

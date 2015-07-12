@@ -126,6 +126,7 @@
                                             <outlet property="addButton" destination="mgY-Ca-q9x" id="2FJ-W6-i6T"/>
                                             <outlet property="contentLabel" destination="iPg-kA-L7f" id="wGc-qZ-n7W"/>
                                             <outlet property="countLabel" destination="jbj-Ni-Frt" id="iKD-lt-8Hk"/>
+                                            <outlet property="iconImageView" destination="jG2-wo-rMm" id="d5D-tM-Ccs"/>
                                             <outlet property="minusButton" destination="1ea-rc-Tmr" id="BLm-P3-Zhc"/>
                                         </connections>
                                     </tableViewCell>
