@@ -1,9 +1,8 @@
 //
 //  MenuControl.swift
-//  DesignerNewsApp
 //
-//  Created by André Schneider on 04.02.15.
-//  Copyright (c) 2015 Meng To. All rights reserved.
+//  Created by Zhiheng Yi
+//  Copyright (c) 2015 Zhiheng Yi. All rights reserved.
 //
 
 import UIKit
@@ -18,7 +17,7 @@ import UIKit
         }
     }
 
-    var isDisplayingMenu: Bool { return centerView.alpha == 1 }
+    var isNormal: Bool { return centerView.alpha == 1 }
 
     private let topView = UIView()
     private let centerView = UIView()
@@ -26,7 +25,7 @@ import UIKit
 
     override func layoutSubviews() {
         if subviews.isEmpty {
-            addTarget()
+
             setUp()
         }
     }
@@ -64,16 +63,6 @@ import UIKit
                 self.bottomView.center = CGPoint(x: centerX, y: self.bounds.maxY - self.bottomView.bounds.midY)
             },
             completion: nil)
-    }
-
-    func touchUpInside() {
-        isDisplayingMenu ? closeAnimation() : menuAnimation()
-    }
-
-    // MARK: Private Methods
-
-    private func addTarget() {
-        addTarget(self, action: "touchUpInside", forControlEvents: .TouchUpInside)
     }
 
     private func setUp() {

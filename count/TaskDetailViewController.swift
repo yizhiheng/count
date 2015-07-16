@@ -64,15 +64,17 @@ class TaskDetailViewController: UIViewController {
         contentLabel.text = "\(tasks[tappedTaskIndex].content)..."
         startingNumberLabel.text = "\(tasks[tappedTaskIndex].startingNumber)"
         stepDistanceLabel.text = "\(tasks[tappedTaskIndex].stepDistance)"
+        taskIcon.image = UIImage(named: tasks[tappedTaskIndex].icon)
+        
     }
     
     func setScrollView () {
         
-        let iconNameArray =  ["anchor", "booklet", "caution", "cruise", "gamecontroller", "hourglass", "paintroller", "rainbow", "spaceshuttle", "tractor", "art", "briefcase", "chat", "denied", "gas", "lightbulb", "parachute", "recycle", "stack", "travelerbag", "bike", "brightness", "check", "fashion", "hazard", "megaphone2", "phone", "ribbon", "star", "ufo", "blimp", "browser", "compass", "flame", "heart", "merge", "plane", "rocket", "submarine", "unlocked", "bolt", "car", "compose", "flash", "helicopter", "microphone", "present", "running", "support", "windy", "bomb", "cart", "countdown", "flower", "hotair", "motorcycle", "racingflags", "shop", "tools", "x"]
+        let iconNameArray =  ["shop", "anchor", "booklet", "caution", "cruise", "gamecontroller", "hourglass", "paintroller", "rainbow", "spaceshuttle", "tractor", "art", "briefcase", "chat", "denied", "gas", "lightbulb", "parachute", "recycle", "stack", "travelerbag", "bike", "brightness", "check", "fashion", "hazard", "megaphone2", "phone", "ribbon", "star", "ufo", "blimp", "browser", "compass", "flame", "heart", "merge", "plane", "rocket", "submarine", "unlocked", "bolt", "car", "compose", "flash", "helicopter", "microphone", "present", "running", "support", "windy", "bomb", "cart", "countdown", "flower", "hotair", "motorcycle", "racingflags", "tools", "x"]
 
         scrollView.pagingEnabled = true
         scrollView.bounces = true
-        scrollView.clipsToBounds = false
+        scrollView.clipsToBounds = true
         
         let buttonLength: CGFloat = 30
         let buttonsCountInPage: CGFloat = 8
@@ -81,7 +83,7 @@ class TaskDetailViewController: UIViewController {
         var buttonPadding: CGFloat = (viewWidth - buttonLength * CGFloat(buttonsCountInPage)) / (buttonsCountInPage + 1)
 
         let yPosition = scrollView.frame.height / 2 - buttonLength / 2
-        var xPosition: CGFloat = 0
+        var xPosition: CGFloat = 16
         
         for name in iconNameArray {
             
@@ -152,7 +154,6 @@ class TaskDetailViewController: UIViewController {
                     alert.viewText.animate()
                 }
             }
-            
             if stepDistance.text != "" {
                 if fitInt32(stepDistance.text) {
                     tasks[tappedTaskIndex].stepDistance = Int32(stepDistance.text.toInt()!)
@@ -168,7 +169,6 @@ class TaskDetailViewController: UIViewController {
                 }
             
             }
-            
             if stateChanged {
                 save()
                 self.showData()

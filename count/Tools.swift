@@ -17,8 +17,6 @@ let bgColors: [UIColor] = [
 ]
 
 class Tools {
-    
-    
     func addShadow(buttons: UIButton...) {
         for button in buttons {
             button.layer.shadowOffset = CGSizeMake(3, 3)
@@ -27,9 +25,6 @@ class Tools {
             button.layer.shadowOpacity = 0.5
         }
     }
-    
-    
-
 }
 
 func updateStoredItem (task: Task, flag: Flag) {

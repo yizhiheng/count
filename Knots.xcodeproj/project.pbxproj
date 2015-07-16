@@ -253,9 +253,9 @@
 		81625DD71B4B1CA2009AB6F9 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				813B01941B4C7E3B00BF6B2F /* MenuControl.swift */,
 				81655B361B4DB9A200278976 /* SCLAlertView.swift */,
 				81BAF6BA1B4CCD8100C71F3A /* Spring */,
-				813B01941B4C7E3B00BF6B2F /* MenuControl.swift */,
 			);
 			name = ThirdParty;
 			sourceTree = "<group>";
@@ -479,6 +479,7 @@
 				TargetAttributes = {
 					81E1FA6E1B488B0B000386EE = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = C4V97NAX2K;
 					};
 					81E1FA861B488B0B000386EE = {
 						CreatedOnToolsVersion = 6.4;
@@ -754,9 +755,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = count/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Knots;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -764,9 +768,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = count/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = Knots;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

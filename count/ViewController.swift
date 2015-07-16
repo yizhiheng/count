@@ -16,29 +16,32 @@ enum Flag {
 
 let fetchRequest = NSFetchRequest(entityName:"Task")
 let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
-
 var tasks = [Task]()
 var tappedTaskIndex: Int = 0
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var editingButton: MenuControl!
     @IBOutlet weak var newTaskButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    
+    var normalButtonIs = true
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.view.backgroundColor = UIColor.clearColor()
         self.navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
-        
         refresh()
         tableView.reloadData()
     }
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         //self.navigationController.navigationBar.barStyle = UIBarStyleBlack
         //self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
 
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         
         newTaskButton.layer.shadowOffset = CGSizeMake(3, 3)
         newTaskButton.layer.shadowRadius = 3
@@ -55,14 +58,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.navigationItem.titleView = titleLabel
 
         tableView.separatorStyle = .None
-        
-        super.viewDidLoad()
         //self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        
+        //editingButton.closeAnimation()
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
     }
     
     override func setEditing(editing: Bool, animated: Bool) {
@@ -73,7 +77,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             // Execute tasks for non-editing status.
             self.tableView.setEditing(false, animated: true)
         }
-        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -83,7 +86,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasks.count
     }
-    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("task", forIndexPath: indexPath) as! TableViewCell
@@ -116,6 +118,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.reloadData()
         
     }
+    
     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
@@ -124,8 +127,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tappedTaskIndex = indexPath.row
         self.performSegueWithIdentifier("showDetailSegue", sender: nil)
     }
-    
-    
+
     func addTapped (sender: UIButton) {
         if sender.tag < tasks.count {
             updateStoredItem(tasks[sender.tag], Flag.add)
@@ -179,7 +181,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         task.count = Int32(0)
         task.startingNumber = Int32(0)
         task.stepDistance = Int32(1)
-        task.icon = "car"    //default icon
+        task.icon = "shop"    //default icon
         
         if let lastTask = tasks.last {
             let lastBgColor = lastTask.bgColor
@@ -216,9 +218,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             return false
         }
     }
-
+    
     @IBAction func editButtonTapped(sender: AnyObject) {
-        self.tableView.setEditing(!tableView.editing, animated: true)
+        
+        let isTableViewNormal = !tableView.editing
+        println(isTableViewNormal)
+        
+        if editingButton.isNormal == isTableViewNormal {
+            editingButton.isNormal ? editingButton.closeAnimation() : editingButton.menuAnimation()
+            self.tableView.setEditing(!tableView.editing, animated: true)
+        } else {
+            tableView.editing = isTableViewNormal
+        }
+
     }
     
     @IBAction func newTaskButtonTapped(sender: UIButton) {
