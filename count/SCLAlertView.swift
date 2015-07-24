@@ -66,6 +66,9 @@ let kCircleHeightBackground: CGFloat = 62.0
 
 // The Main Class
 public class SCLAlertView: UIViewController {
+    
+    var isGoingToDismiss = true
+    
     let kDefaultShadowOpacity: CGFloat = 0.7
     let kCircleTopPosition: CGFloat = -12.0
     let kCircleBackgroundTopPosition: CGFloat = -15.0
@@ -80,8 +83,8 @@ public class SCLAlertView: UIViewController {
     let kButtonHeight: CGFloat = 45.0
     
     // Font
-    let kDefaultFont = "HelveticaNeue"
-    let kButtonFont = "HelveticaNeue-Bold"
+    let kDefaultFont = "Avenir Next"
+    let kButtonFont = "Avenir Next"
     
     // UI Colour
     var viewColor = UIColor()
@@ -93,7 +96,7 @@ public class SCLAlertView: UIViewController {
     // Members declaration
     var baseView = UIView()
     var labelTitle = UILabel()
-    var viewText = UITextView()
+    var viewText = SpringTextView()
     var contentView = UIView()
     var circleBG = UIView(frame:CGRect(x:0, y:0, width:kCircleHeightBackground, height:kCircleHeightBackground))
     var circleView = UIView()
@@ -288,7 +291,10 @@ public class SCLAlertView: UIViewController {
         } else {
             println("Unknow action type for button")
         }
-        hideView()
+        if isGoingToDismiss {
+            hideView()
+        }
+        
     }
     
     
@@ -298,7 +304,7 @@ public class SCLAlertView: UIViewController {
         var brightness : CGFloat = 0
         var alpha : CGFloat = 0
         btn.backgroundColor?.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
-        //brightness = brightness * CGFloat(pressBrightness)
+        brightness = brightness * CGFloat(pressBrightnessFactor)
         btn.backgroundColor = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
     }
     
@@ -415,7 +421,7 @@ public class SCLAlertView: UIViewController {
         
         // Done button
         if showCloseButton {
-            let txt = completeText != nil ? completeText! : "Done"
+            let txt = completeText != nil ? completeText! : "Cancel"
             addButton(txt, target:self, selector:Selector("hideView"))
         }
         
