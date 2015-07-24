@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "81E1FA6E1B488B0B000386EE"
-               BuildableName = "Knots.app"
-               BlueprintName = "Knots"
-               ReferencedContainer = "container:Knots.xcodeproj">
+               BuildableName = "KnotsCounter.app"
+               BlueprintName = "KnotsCounter"
+               ReferencedContainer = "container:KnotsCounter.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81E1FA6E1B488B0B000386EE"
-            BuildableName = "Knots.app"
-            BlueprintName = "Knots"
-            ReferencedContainer = "container:Knots.xcodeproj">
+            BuildableName = "KnotsCounter.app"
+            BlueprintName = "KnotsCounter"
+            ReferencedContainer = "container:KnotsCounter.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81E1FA6E1B488B0B000386EE"
-            BuildableName = "Knots.app"
-            BlueprintName = "Knots"
-            ReferencedContainer = "container:Knots.xcodeproj">
+            BuildableName = "KnotsCounter.app"
+            BlueprintName = "KnotsCounter"
+            ReferencedContainer = "container:KnotsCounter.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81E1FA6E1B488B0B000386EE"
-            BuildableName = "Knots.app"
-            BlueprintName = "Knots"
-            ReferencedContainer = "container:Knots.xcodeproj">
+            BuildableName = "KnotsCounter.app"
+            BlueprintName = "KnotsCounter"
+            ReferencedContainer = "container:KnotsCounter.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

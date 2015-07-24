@@ -175,7 +175,7 @@ public class SCLAlertView: UIViewController {
         view.frame.size = sz
         // Set frames
         var x = (sz.width - kWindowWidth) / 2
-        var y = (sz.height - kWindowHeight -  (kCircleHeight / 8)) / 2
+        var y = (sz.height - kWindowHeight -  (kCircleHeight / 8)) / 2.6
         contentView.frame = CGRect(x:x, y:y, width:kWindowWidth, height:kWindowHeight)
         y -= kCircleHeightBackground * 0.6
         x = (sz.width - kCircleHeightBackground) / 2

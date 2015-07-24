@@ -8,3 +8,11 @@ var str = "Hello, playground"
 if "123a".toInt() != nil {
     println("123")
 }
+
+class Car {
+    var name = "123"
+}
+
+var run = Car()
+
+println(run)

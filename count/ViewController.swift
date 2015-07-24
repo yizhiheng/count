@@ -49,9 +49,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         newTaskButton.layer.shadowOpacity = 0.5
         
         let titleLabel = UILabel(frame: CGRectMake(0, 0, 200, 40))
-        titleLabel.font = UIFont(name: "Avenir Next", size: 23)
+        titleLabel.font = UIFont(name: "Avenir Next", size: 21)
         titleLabel.textAlignment = .Center
-        titleLabel.text = "Knots"
+        titleLabel.text = "Knots Counter"
         titleLabel.textColor = UIColor.whiteColor()
         titleLabel.backgroundColor = UIColor.clearColor()
         titleLabel.adjustsFontSizeToFitWidth = true

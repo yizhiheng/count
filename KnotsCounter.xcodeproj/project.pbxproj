@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		813B018B1B4B1EEE00BF6B2F /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B018A1B4B1EEE00BF6B2F /* TaskDetailViewController.swift */; };
 		813B01951B4C7E3B00BF6B2F /* MenuControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B01941B4C7E3B00BF6B2F /* MenuControl.swift */; };
+		8146905B1B61B5E5007E2FEC /* UnderKeyboardDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8146905A1B61B5E5007E2FEC /* UnderKeyboardDistrib.swift */; };
 		81655B371B4DB9A200278976 /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81655B361B4DB9A200278976 /* SCLAlertView.swift */; };
 		81BAF6D91B4CCD8100C71F3A /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BAF6BB1B4CCD8100C71F3A /* AsyncButton.swift */; };
 		81BAF6DA1B4CCD8100C71F3A /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BAF6BC1B4CCD8100C71F3A /* AsyncImageView.swift */; };
@@ -124,6 +125,7 @@
 /* Begin PBXFileReference section */
 		813B018A1B4B1EEE00BF6B2F /* TaskDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		813B01941B4C7E3B00BF6B2F /* MenuControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuControl.swift; sourceTree = "<group>"; };
+		8146905A1B61B5E5007E2FEC /* UnderKeyboardDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderKeyboardDistrib.swift; sourceTree = "<group>"; };
 		81655B361B4DB9A200278976 /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
 		81BAF6BB1B4CCD8100C71F3A /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
 		81BAF6BC1B4CCD8100C71F3A /* AsyncImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
@@ -216,7 +218,7 @@
 		81D32C571B531846006BFC59 /* windy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = windy.png; sourceTree = "<group>"; };
 		81D32C581B531846006BFC59 /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x.png; sourceTree = "<group>"; };
 		81D349611B4F54D5008C9789 /* ProgramLogicTest.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ProgramLogicTest.playground; sourceTree = "<group>"; };
-		81E1FA6F1B488B0B000386EE /* Knots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Knots.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		81E1FA6F1B488B0B000386EE /* KnotsCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnotsCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81E1FA731B488B0B000386EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81E1FA741B488B0B000386EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81E1FA771B488B0B000386EE /* count.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = count.xcdatamodel; sourceTree = "<group>"; };
@@ -224,7 +226,7 @@
 		81E1FA7C1B488B0B000386EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		81E1FA7E1B488B0B000386EE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		81E1FA811B488B0B000386EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		81E1FA871B488B0B000386EE /* KnotsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnotsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		81E1FA871B488B0B000386EE /* KnotsCounterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnotsCounterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81E1FA8C1B488B0B000386EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81E1FA8D1B488B0B000386EE /* countTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = countTests.swift; sourceTree = "<group>"; };
 		81E1FA971B488DD9000386EE /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 		81625DD71B4B1CA2009AB6F9 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				8146905A1B61B5E5007E2FEC /* UnderKeyboardDistrib.swift */,
 				813B01941B4C7E3B00BF6B2F /* MenuControl.swift */,
 				81655B361B4DB9A200278976 /* SCLAlertView.swift */,
 				81BAF6BA1B4CCD8100C71F3A /* Spring */,
@@ -377,8 +380,8 @@
 		81E1FA701B488B0B000386EE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				81E1FA6F1B488B0B000386EE /* Knots.app */,
-				81E1FA871B488B0B000386EE /* KnotsTests.xctest */,
+				81E1FA6F1B488B0B000386EE /* KnotsCounter.app */,
+				81E1FA871B488B0B000386EE /* KnotsCounterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -432,9 +435,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		81E1FA6E1B488B0B000386EE /* Knots */ = {
+		81E1FA6E1B488B0B000386EE /* KnotsCounter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 81E1FA911B488B0C000386EE /* Build configuration list for PBXNativeTarget "Knots" */;
+			buildConfigurationList = 81E1FA911B488B0C000386EE /* Build configuration list for PBXNativeTarget "KnotsCounter" */;
 			buildPhases = (
 				81E1FA6B1B488B0B000386EE /* Sources */,
 				81E1FA6C1B488B0B000386EE /* Frameworks */,
@@ -444,14 +447,14 @@
 			);
 			dependencies = (
 			);
-			name = Knots;
+			name = KnotsCounter;
 			productName = count;
-			productReference = 81E1FA6F1B488B0B000386EE /* Knots.app */;
+			productReference = 81E1FA6F1B488B0B000386EE /* KnotsCounter.app */;
 			productType = "com.apple.product-type.application";
 		};
-		81E1FA861B488B0B000386EE /* KnotsTests */ = {
+		81E1FA861B488B0B000386EE /* KnotsCounterTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 81E1FA941B488B0C000386EE /* Build configuration list for PBXNativeTarget "KnotsTests" */;
+			buildConfigurationList = 81E1FA941B488B0C000386EE /* Build configuration list for PBXNativeTarget "KnotsCounterTests" */;
 			buildPhases = (
 				81E1FA831B488B0B000386EE /* Sources */,
 				81E1FA841B488B0B000386EE /* Frameworks */,
@@ -462,9 +465,9 @@
 			dependencies = (
 				81E1FA891B488B0B000386EE /* PBXTargetDependency */,
 			);
-			name = KnotsTests;
+			name = KnotsCounterTests;
 			productName = countTests;
-			productReference = 81E1FA871B488B0B000386EE /* KnotsTests.xctest */;
+			productReference = 81E1FA871B488B0B000386EE /* KnotsCounterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -487,7 +490,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 81E1FA6A1B488B0B000386EE /* Build configuration list for PBXProject "Knots" */;
+			buildConfigurationList = 81E1FA6A1B488B0B000386EE /* Build configuration list for PBXProject "KnotsCounter" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -500,8 +503,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				81E1FA6E1B488B0B000386EE /* Knots */,
-				81E1FA861B488B0B000386EE /* KnotsTests */,
+				81E1FA6E1B488B0B000386EE /* KnotsCounter */,
+				81E1FA861B488B0B000386EE /* KnotsCounterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -610,6 +613,7 @@
 				81BAF6E11B4CCD8100C71F3A /* DesignableTextField.swift in Sources */,
 				81BAF6E31B4CCD8100C71F3A /* DesignableView.swift in Sources */,
 				81BAF6EA1B4CCD8100C71F3A /* SoundPlayer.swift in Sources */,
+				8146905B1B61B5E5007E2FEC /* UnderKeyboardDistrib.swift in Sources */,
 				813B018B1B4B1EEE00BF6B2F /* TaskDetailViewController.swift in Sources */,
 				81BAF6DC1B4CCD8100C71F3A /* BlurView.swift in Sources */,
 				81BAF6E61B4CCD8100C71F3A /* KeyboardLayoutConstraint.swift in Sources */,
@@ -645,7 +649,7 @@
 /* Begin PBXTargetDependency section */
 		81E1FA891B488B0B000386EE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 81E1FA6E1B488B0B000386EE /* Knots */;
+			target = 81E1FA6E1B488B0B000386EE /* KnotsCounter */;
 			targetProxy = 81E1FA881B488B0B000386EE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -670,6 +674,72 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		810275531B5881EA00712E7B /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Liu Cheng (C4V97NAX2K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Liu Cheng (C4V97NAX2K)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
+		};
+		810275541B5881EA00712E7B /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = count/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = KnotsCounter;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Distribution;
+		};
+		810275551B5881EA00712E7B /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = countTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = KnotsCounterTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KnotsCounter.app/KnotsCounter";
+			};
+			name = Distribution;
+		};
 		81E1FA8F1B488B0C000386EE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -687,7 +757,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Liu Cheng (C4V97NAX2K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Liu Cheng (C4V97NAX2K)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -706,7 +777,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -731,7 +802,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Liu Cheng (C4V97NAX2K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Liu Cheng (C4V97NAX2K)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -744,7 +816,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -759,7 +831,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = count/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = Knots;
+				PRODUCT_NAME = KnotsCounter;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -772,7 +844,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = count/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = Knots;
+				PRODUCT_NAME = KnotsCounter;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -791,8 +863,8 @@
 				);
 				INFOPLIST_FILE = countTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = KnotsTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Knots.app/Knots";
+				PRODUCT_NAME = KnotsCounterTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KnotsCounter.app/KnotsCounter";
 			};
 			name = Debug;
 		};
@@ -806,37 +878,40 @@
 				);
 				INFOPLIST_FILE = countTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = KnotsTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Knots.app/Knots";
+				PRODUCT_NAME = KnotsCounterTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KnotsCounter.app/KnotsCounter";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		81E1FA6A1B488B0B000386EE /* Build configuration list for PBXProject "Knots" */ = {
+		81E1FA6A1B488B0B000386EE /* Build configuration list for PBXProject "KnotsCounter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81E1FA8F1B488B0C000386EE /* Debug */,
 				81E1FA901B488B0C000386EE /* Release */,
+				810275531B5881EA00712E7B /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		81E1FA911B488B0C000386EE /* Build configuration list for PBXNativeTarget "Knots" */ = {
+		81E1FA911B488B0C000386EE /* Build configuration list for PBXNativeTarget "KnotsCounter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81E1FA921B488B0C000386EE /* Debug */,
 				81E1FA931B488B0C000386EE /* Release */,
+				810275541B5881EA00712E7B /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		81E1FA941B488B0C000386EE /* Build configuration list for PBXNativeTarget "KnotsTests" */ = {
+		81E1FA941B488B0C000386EE /* Build configuration list for PBXNativeTarget "KnotsCounterTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81E1FA951B488B0C000386EE /* Debug */,
 				81E1FA961B488B0C000386EE /* Release */,
+				810275551B5881EA00712E7B /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
