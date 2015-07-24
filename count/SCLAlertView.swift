@@ -26,7 +26,6 @@ public class SCLButton: UIButton {
     var selector:Selector!
     var action:(()->Void)!
     
-    
     public init() {
         super.init(frame: CGRectZero)
     }
@@ -67,9 +66,6 @@ let kCircleHeightBackground: CGFloat = 62.0
 
 // The Main Class
 public class SCLAlertView: UIViewController {
-    
-    var isGoingToDismiss = true
-    
     let kDefaultShadowOpacity: CGFloat = 0.7
     let kCircleTopPosition: CGFloat = -12.0
     let kCircleBackgroundTopPosition: CGFloat = -15.0
@@ -80,22 +76,24 @@ public class SCLAlertView: UIViewController {
     let kWindowWidth: CGFloat = 240.0
     var kWindowHeight: CGFloat = 178.0
     var kTextHeight: CGFloat = 90.0
+    let kTextFieldHeight: CGFloat = 45.0
+    let kButtonHeight: CGFloat = 45.0
     
     // Font
-    let kDefaultFont = "Avenir Next"
-    let kButtonFont = "Avenir Next"
+    let kDefaultFont = "HelveticaNeue"
+    let kButtonFont = "HelveticaNeue-Bold"
     
     // UI Colour
     var viewColor = UIColor()
     var pressBrightnessFactor = 0.85
     
     // UI Options
-    var showCloseButton = true
+    public var showCloseButton = true
     
     // Members declaration
     var baseView = UIView()
     var labelTitle = UILabel()
-    var viewText = SpringTextView()
+    var viewText = UITextView()
     var contentView = UIView()
     var circleBG = UIView(frame:CGRect(x:0, y:0, width:kCircleHeightBackground, height:kCircleHeightBackground))
     var circleView = UIView()
@@ -103,6 +101,7 @@ public class SCLAlertView: UIViewController {
     var durationTimer: NSTimer!
     private var inputs = [UITextField]()
     private var buttons = [SCLButton]()
+    private var selfReference: SCLAlertView?
     
     required public init(coder aDecoder: NSCoder) {
         fatalError("NSCoding not supported")
@@ -173,28 +172,50 @@ public class SCLAlertView: UIViewController {
         }
         // Set background frame
         view.frame.size = sz
+        
+        // computing the right size to use for the textView
+        let maxHeight = sz.height - 100 // max overall height
+        var consumedHeight = CGFloat(0)
+        consumedHeight += kTitleTop + kTitleHeight
+        consumedHeight += 14
+        consumedHeight += kButtonHeight * CGFloat(buttons.count)
+        consumedHeight += kTextFieldHeight * CGFloat(inputs.count)
+        let maxViewTextHeight = maxHeight - consumedHeight
+        let viewTextWidth = kWindowWidth - 24
+        let suggestedViewTextSize = viewText.sizeThatFits(CGSizeMake(viewTextWidth, CGFloat.max))
+        let viewTextHeight = min(suggestedViewTextSize.height, maxViewTextHeight)
+        
+        // scroll management
+        if (suggestedViewTextSize.height > maxViewTextHeight) {
+            viewText.scrollEnabled = true
+        } else {
+            viewText.scrollEnabled = false
+        }
+        
+        let windowHeight = consumedHeight + viewTextHeight
         // Set frames
         var x = (sz.width - kWindowWidth) / 2
-        var y = (sz.height - kWindowHeight -  (kCircleHeight / 8)) / 2.6
-        contentView.frame = CGRect(x:x, y:y, width:kWindowWidth, height:kWindowHeight)
+        var y = (sz.height - windowHeight - (kCircleHeight / 8)) / 2
+        contentView.frame = CGRect(x:x, y:y, width:kWindowWidth, height:windowHeight)
         y -= kCircleHeightBackground * 0.6
         x = (sz.width - kCircleHeightBackground) / 2
         circleBG.frame = CGRect(x:x, y:y+6, width:kCircleHeightBackground, height:kCircleHeightBackground)
         // Subtitle
         y = kTitleTop + kTitleHeight
         viewText.frame = CGRect(x:12, y:y, width: kWindowWidth - 24, height:kTextHeight)
+        viewText.frame = CGRect(x:12, y:y, width: viewTextWidth, height:viewTextHeight)
         // Text fields
-        y += kTextHeight + 14.0
+        y += viewTextHeight + 14.0
         for txt in inputs {
             txt.frame = CGRect(x:12, y:y, width:kWindowWidth - 24, height:30)
             txt.layer.cornerRadius = 3
-            y += 40
+            y += kTextFieldHeight
         }
         // Buttons
         for btn in buttons {
             btn.frame = CGRect(x:12, y:y, width:kWindowWidth - 24, height:35)
             btn.layer.cornerRadius = 3
-            y += 45.0
+            y += kButtonHeight
         }
     }
     
@@ -206,7 +227,7 @@ public class SCLAlertView: UIViewController {
     
     public func addTextField(title:String?=nil)->UITextField {
         // Update view height
-        kWindowHeight += 40.0
+        kWindowHeight += kTextFieldHeight
         // Add text field
         let txt = UITextField()
         txt.borderStyle = UITextBorderStyle.RoundedRect
@@ -246,7 +267,7 @@ public class SCLAlertView: UIViewController {
     
     private func addButton(title:String)->SCLButton {
         // Update view height
-        kWindowHeight += 45.0
+        kWindowHeight += kButtonHeight
         // Add button
         let btn = SCLButton()
         btn.layer.masksToBounds = true
@@ -267,10 +288,7 @@ public class SCLAlertView: UIViewController {
         } else {
             println("Unknow action type for button")
         }
-        if isGoingToDismiss {
-            hideView()
-        }
-        
+        hideView()
     }
     
     
@@ -280,7 +298,7 @@ public class SCLAlertView: UIViewController {
         var brightness : CGFloat = 0
         var alpha : CGFloat = 0
         btn.backgroundColor?.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
-        brightness = brightness * CGFloat(pressBrightnessFactor)
+        //brightness = brightness * CGFloat(pressBrightness)
         btn.backgroundColor = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
     }
     
@@ -323,7 +341,7 @@ public class SCLAlertView: UIViewController {
         return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Wait, colorStyle: colorStyle, colorTextButton: colorTextButton)
     }
     
-    public func showEdit(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=0x2866BF, colorTextButton: UInt=0xFFFFFF) -> SCLAlertViewResponder {
+    public func showEdit(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=0xA429FF, colorTextButton: UInt=0xFFFFFF) -> SCLAlertViewResponder {
         return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Edit, colorStyle: colorStyle, colorTextButton: colorTextButton)
     }
     
@@ -334,6 +352,7 @@ public class SCLAlertView: UIViewController {
     
     // showTitle(view, title, subTitle, duration, style)
     public func showTitle(title: String, subTitle: String, duration: NSTimeInterval?, completeText: String?, style: SCLAlertViewStyle, colorStyle: UInt?, colorTextButton: UInt?) -> SCLAlertViewResponder {
+        selfReference = self
         view.alpha = 0
         let rv = UIApplication.sharedApplication().keyWindow! as UIWindow
         rv.addSubview(view)
@@ -396,7 +415,7 @@ public class SCLAlertView: UIViewController {
         
         // Done button
         if showCloseButton {
-            let txt = completeText != nil ? completeText! : "Cancel"
+            let txt = completeText != nil ? completeText! : "Done"
             addButton(txt, target:self, selector:Selector("hideView"))
         }
         
@@ -445,11 +464,11 @@ public class SCLAlertView: UIViewController {
     
     // Close SCLAlertView
     public func hideView() {
-        println("hide")
         UIView.animateWithDuration(0.2, animations: {
             self.view.alpha = 0
             }, completion: { finished in
                 self.view.removeFromSuperview()
+                self.selfReference = nil
         })
     }
     
