@@ -243,6 +243,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 self.addNewTask(txt.text)
                 //alert.state = true
             } else {
+                
                 alert.isGoingToDismiss = false
                 alert.viewText.text = "Oops! Something goes wrong. Please try again."
                 alert.viewText.textColor = UIColor.redColor()

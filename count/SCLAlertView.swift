@@ -68,6 +68,7 @@ let kCircleHeightBackground: CGFloat = 62.0
 public class SCLAlertView: UIViewController {
     
     var isGoingToDismiss = true
+    let keyboardObserver = UnderKeyboardObserver()
     
     let kDefaultShadowOpacity: CGFloat = 0.7
     let kCircleTopPosition: CGFloat = -12.0
@@ -105,7 +106,7 @@ public class SCLAlertView: UIViewController {
     private var inputs = [UITextField]()
     private var buttons = [SCLButton]()
     private var selfReference: SCLAlertView?
-    
+
     required public init(coder aDecoder: NSCoder) {
         fatalError("NSCoding not supported")
     }
@@ -159,6 +160,23 @@ public class SCLAlertView: UIViewController {
     
     override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName:nibNameOrNil, bundle:nibBundleOrNil)
+    }
+    
+    
+    override public func viewDidLoad() {
+        println("alertView loaded")
+        keyboardObserver.start()
+        keyboardObserver.willAnimateKeyboard = { height in
+            println(height)
+
+            if height == 0.0 {
+                self.contentView.frame.origin.y += 80
+                self.circleBG.frame.origin.y += 80
+            } else {
+                self.contentView.frame.origin.y -= 80
+                self.circleBG.frame.origin.y -= 80
+            }
+        }
     }
     
     override public func viewWillLayoutSubviews() {
@@ -314,8 +332,11 @@ public class SCLAlertView: UIViewController {
     
     //Dismiss keyboard when tapped outside textfield
     func dismissKeyboard(){
+
         self.view.endEditing(true)
     }
+    
+
     
     // showSuccess(view, title, subTitle)
     public func showSuccess(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=0x22B573, colorTextButton: UInt=0xFFFFFF) -> SCLAlertViewResponder {
