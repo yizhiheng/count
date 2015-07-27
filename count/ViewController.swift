@@ -9,11 +9,11 @@
 import UIKit
 import CoreData
 
+
 enum Flag {
     case add
     case minus
 }
-
 let fetchRequest = NSFetchRequest(entityName:"Task")
 let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
 var tasks = [Task]()
@@ -21,11 +21,15 @@ var tappedTaskIndex: Int = 0
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    var normalButtonIs = true
     @IBOutlet weak var editingButton: MenuControl!
     @IBOutlet weak var newTaskButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
-    var normalButtonIs = true
+    deinit {
+        self.tableView.emptyDataSetSource = nil
+        self.tableView.emptyDataSetDelegate = nil
+    }
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
@@ -40,7 +44,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         //self.navigationController.navigationBar.barStyle = UIBarStyleBlack
         //self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
-
+        
+        tableView.emptyDataSetSource = self
+        
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         
         newTaskButton.layer.shadowOffset = CGSizeMake(3, 3)
@@ -190,20 +196,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             } else {
                 task.bgColor = lastBgColor + 1
             }
-            
         }
-//        var tt = Int(arc4random_uniform(UInt32(bgColors.count - 1)))
-//        task.bgColor = Int16(tt)
-        
         save()
         tasks.append(task)
-        tableView.reloadData()
-        
-//        var row = tasks.count
-//        var indexPath = NSIndexPath(forRow:row,inSection:0)
-//
-//        self.tableView?.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Top)
-        
+        var row = tasks.count - 1
+        var indexPath = NSIndexPath(forRow: row, inSection: 0)
+        tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+        //tableView.reloadData()
     }
     
     func refresh () -> Bool {
@@ -219,6 +218,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
+    // MARK: - IBActions
     @IBAction func editButtonTapped(sender: AnyObject) {
         
         let isTableViewNormal = !tableView.editing
@@ -257,5 +257,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
+}
+
+// MARK: - 主ViewController Extension
+extension ViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate
+{
+    func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
+        return UIImage(named: "art")
+    }
 }
 

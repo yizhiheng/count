@@ -4,7 +4,6 @@
 //
 //  Created by Viktor Radchenko on 6/5/14.
 //  Copyright (c) 2014 Viktor Radchenko. All rights reserved.
-//
 
 import Foundation
 import UIKit
@@ -162,13 +161,10 @@ public class SCLAlertView: UIViewController {
         super.init(nibName:nibNameOrNil, bundle:nibBundleOrNil)
     }
     
-    
     override public func viewDidLoad() {
-        println("alertView loaded")
         keyboardObserver.start()
         keyboardObserver.willAnimateKeyboard = { height in
             println(height)
-
             if height == 0.0 {
                 self.contentView.frame.origin.y += 80
                 self.circleBG.frame.origin.y += 80

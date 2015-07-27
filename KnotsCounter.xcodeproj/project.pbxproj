@@ -265,7 +265,6 @@
 				813B01941B4C7E3B00BF6B2F /* MenuControl.swift */,
 				81655B361B4DB9A200278976 /* SCLAlertView.swift */,
 				81BAF6BA1B4CCD8100C71F3A /* Spring */,
-				8101D1841B64879500EDC4F9 /* KnotsCounter-Bridging-Header.h */,
 			);
 			name = ThirdParty;
 			sourceTree = "<group>";
@@ -403,6 +402,7 @@
 				81E1FA971B488DD9000386EE /* Task.swift */,
 				813B018A1B4B1EEE00BF6B2F /* TaskDetailViewController.swift */,
 				81F787151B4A03D7007ED96E /* Tools.swift */,
+				8101D1841B64879500EDC4F9 /* KnotsCounter-Bridging-Header.h */,
 				81D32C1C1B531846006BFC59 /* icons */,
 				81625DD71B4B1CA2009AB6F9 /* ThirdParty */,
 				81E1FA721B488B0B000386EE /* Supporting Files */,
