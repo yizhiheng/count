@@ -106,6 +106,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.backgroundColor = bgColors[Int(tasks[indexPath.row].bgColor)]
         return cell
     }
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        let thisCell = cell as! TableViewCell
+        thisCell.countLabel.animation = "swing"
+        thisCell.countLabel.duration = 0.8
+        thisCell.countLabel.animate()
+        
+    }
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
@@ -138,8 +145,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if sender.tag < tasks.count {
             updateStoredItem(tasks[sender.tag], Flag.add)
             var indexPath = NSIndexPath(forRow:sender.tag,inSection:0)
-            //self.tableView?.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
-            self.tableView.reloadData()
+            self.tableView?.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+            //self.tableView.reloadData()
         } else {
             println("error")
         }
@@ -254,9 +261,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         }
         alert.showEdit("New task...", subTitle:"What kind of thing you want to record today?")
-        
     }
-    
 }
 
 // MARK: - 主ViewController Extension

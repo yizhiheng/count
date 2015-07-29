@@ -4,7 +4,6 @@
 //
 //  Created by Zhiheng Yi on 2015-07-05.
 //  Copyright (c) 2015 Zhiheng Yi. All rights reserved.
-//
 
 import UIKit
 
@@ -24,13 +23,10 @@ class TableViewCell: UITableViewCell {
     var count: Int? {
         didSet {
             countLabel.text = "\(count!)"
-
         }
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        println("new")
         addShadow(countLabel, contentLabel, addButton, minusButton)
         countLabel.animation = "swing"
         countLabel.duration = 0.8
@@ -42,10 +38,9 @@ class TableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     @IBAction func addTapped(sender: AnyObject) {
-        addShadow(countLabel, contentLabel, addButton, minusButton)
-        countLabel.animation = "swing"
-        countLabel.duration = 0.8
-        countLabel.animate()
+
+
+        countLabel.text = "What?"
     }
     @IBAction func minusTapped(sender: AnyObject) {
         
