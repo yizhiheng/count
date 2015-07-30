@@ -79,7 +79,7 @@ public class SCLAlertView: UIViewController {
     let kWindowWidth: CGFloat = 240.0
     var kWindowHeight: CGFloat = 178.0
     var kTextHeight: CGFloat = 90.0
-    let kTextFieldHeight: CGFloat = 45.0
+    let kTextFieldHeight: CGFloat = 55.0
     let kButtonHeight: CGFloat = 45.0
     
     // Font
@@ -222,10 +222,10 @@ public class SCLAlertView: UIViewController {
         viewText.frame = CGRect(x:12, y:y, width: kWindowWidth - 24, height:kTextHeight)
         viewText.frame = CGRect(x:12, y:y, width: viewTextWidth, height:viewTextHeight)
         // Text fields
-        y += viewTextHeight + 14.0
+        y += viewTextHeight + 5.0
         for txt in inputs {
-            txt.frame = CGRect(x:12, y:y, width:kWindowWidth - 24, height:30)
-            txt.layer.cornerRadius = 3
+            txt.frame = CGRect(x:12, y:y, width:kWindowWidth - 24, height:45)
+            //txt.layer.cornerRadius = 3
             y += kTextFieldHeight
         }
         // Buttons
@@ -246,13 +246,16 @@ public class SCLAlertView: UIViewController {
         // Update view height
         kWindowHeight += kTextFieldHeight
         // Add text field
-        let txt = UITextField()
-        txt.borderStyle = UITextBorderStyle.RoundedRect
+        let txt = HoshiTextField()
+        //txt.borderStyle = UITextBorderStyle.RoundedRect
         txt.font = UIFont(name:kDefaultFont, size: 14)
-        txt.autocapitalizationType = UITextAutocapitalizationType.Words
-        txt.clearButtonMode = UITextFieldViewMode.WhileEditing
-        txt.layer.masksToBounds = true
-        txt.layer.borderWidth = 1.0
+        //txt.autocapitalizationType = UITextAutocapitalizationType.Words
+        //txt.clearButtonMode = UITextFieldViewMode.WhileEditing
+        //txt.layer.masksToBounds = true
+        txt.borderActiveColor = UIColor.blackColor()
+        txt.borderInactiveColor = UIColor.blueColor()
+        txt.placeholderColor = UIColor.grayColor()
+        //txt.layer.borderWidth = 1.0
         if title != nil {
             txt.placeholder = title!
         }
@@ -328,7 +331,6 @@ public class SCLAlertView: UIViewController {
     
     //Dismiss keyboard when tapped outside textfield
     func dismissKeyboard(){
-
         self.view.endEditing(true)
     }
     

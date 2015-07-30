@@ -39,8 +39,6 @@ class TableViewCell: UITableViewCell {
     }
     @IBAction func addTapped(sender: AnyObject) {
 
-
-        countLabel.text = "What?"
     }
     @IBAction func minusTapped(sender: AnyObject) {
         
