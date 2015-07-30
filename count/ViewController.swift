@@ -108,8 +108,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         let thisCell = cell as! TableViewCell
-        thisCell.countLabel.animation = "swing"
-        thisCell.countLabel.duration = 0.8
+        thisCell.countLabel.animation = "pop"
+        thisCell.countLabel.duration = 0.5
         thisCell.countLabel.animate()
         
     }
@@ -119,6 +119,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             println("delete at \(indexPath.row)")
             deleteTaskAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
+            //循环更新加减button的tag
+            for var row = 0; row < tableView.numberOfRowsInSection(0); row++ {
+                let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0)) as! TableViewCell
+                cell.addButton.tag = row
+                cell.minusButton.tag = row
+            }
+            
+            if tasks.count == 0 {
+                //self.tableView.emptyDataSetSource = self
+                self.tableView.reloadData()
+            }
+            
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
@@ -145,8 +158,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if sender.tag < tasks.count {
             updateStoredItem(tasks[sender.tag], Flag.add)
             var indexPath = NSIndexPath(forRow:sender.tag,inSection:0)
-            self.tableView?.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
-            //self.tableView.reloadData()
+            self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+
+
         } else {
             println("error")
         }
@@ -154,7 +168,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     func minusTapped (sender: UIButton) {
         updateStoredItem(tasks[sender.tag], Flag.minus)
-        self.tableView.reloadData()
+        var indexPath = NSIndexPath(forRow:sender.tag,inSection:0)
+        self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
     }
     
 
@@ -196,6 +211,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         task.stepDistance = Int32(1)
         task.icon = "shop"    //default icon
         
+        //给任务赋值颜色
         if let lastTask = tasks.last {
             let lastBgColor = lastTask.bgColor
             if Int(lastBgColor) >= bgColors.count - 1 {
@@ -208,8 +224,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tasks.append(task)
         var row = tasks.count - 1
         var indexPath = NSIndexPath(forRow: row, inSection: 0)
-        tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
-        //tableView.reloadData()
+        if tasks.count == 1 {
+            tableView.reloadData()
+        } else {
+            tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+        }
+        
+        
     }
     
     func refresh () -> Bool {

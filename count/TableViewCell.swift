@@ -28,9 +28,7 @@ class TableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         addShadow(countLabel, contentLabel, addButton, minusButton)
-        countLabel.animation = "swing"
-        countLabel.duration = 0.8
-        countLabel.animate()
+
     }
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
