@@ -162,15 +162,28 @@ public class SCLAlertView: UIViewController {
     }
     
     override public func viewDidLoad() {
+        
+        var keyboardAppeared = false {
+            willSet {
+                if newValue != keyboardAppeared {
+                    if newValue == true {
+                        //keyboard出来
+                        self.contentView.frame.origin.y -= 80
+                        self.circleBG.frame.origin.y -= 80
+                    } else {
+                        self.contentView.frame.origin.y += 80
+                        self.circleBG.frame.origin.y += 80
+                    }
+                }
+            }
+        }
         keyboardObserver.start()
         keyboardObserver.willAnimateKeyboard = { height in
             println(height)
             if height == 0.0 {
-                self.contentView.frame.origin.y += 80
-                self.circleBG.frame.origin.y += 80
+                keyboardAppeared = false
             } else {
-                self.contentView.frame.origin.y -= 80
-                self.circleBG.frame.origin.y -= 80
+                keyboardAppeared = true
             }
         }
     }
@@ -313,7 +326,6 @@ public class SCLAlertView: UIViewController {
         }
         
     }
-    
     
     func buttonTapDown(btn:SCLButton) {
         var hue : CGFloat = 0
