@@ -62,6 +62,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.navigationItem.titleView = titleLabel
 
         tableView.separatorStyle = .None
+        //tableView.contentMode = UIViewContentMode.ScaleToFill
         //self.navigationItem.leftBarButtonItem = self.editButtonItem()
         
         //editingButton.closeAnimation()
@@ -287,7 +288,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 extension ViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate
 {
     func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
-        return UIImage(named: "emptySet")
+        
+        if let img = UIImage(named: "emptySet"){
+            
+            return img
+        }
+        return nil
+        
     }
 }
 
