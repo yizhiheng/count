@@ -148,6 +148,7 @@
 		8101D1951B69B08400EDC4F9 /* TextFieldEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldEffects.h; sourceTree = "<group>"; };
 		8101D1961B69B08400EDC4F9 /* TextFieldsEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldsEffects.swift; sourceTree = "<group>"; };
 		8101D1971B69B08400EDC4F9 /* YokoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YokoTextField.swift; sourceTree = "<group>"; };
+		8102256B1B6AF3F900AB5374 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		813B018A1B4B1EEE00BF6B2F /* TaskDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		813B01941B4C7E3B00BF6B2F /* MenuControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuControl.swift; sourceTree = "<group>"; };
 		8146905A1B61B5E5007E2FEC /* UnderKeyboardDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderKeyboardDistrib.swift; sourceTree = "<group>"; };
@@ -242,7 +243,6 @@
 		81D32C561B531846006BFC59 /* unlocked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unlocked.png; sourceTree = "<group>"; };
 		81D32C571B531846006BFC59 /* windy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = windy.png; sourceTree = "<group>"; };
 		81D32C581B531846006BFC59 /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x.png; sourceTree = "<group>"; };
-		81D349611B4F54D5008C9789 /* ProgramLogicTest.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ProgramLogicTest.playground; sourceTree = "<group>"; };
 		81E1FA6F1B488B0B000386EE /* KnotsCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnotsCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81E1FA731B488B0B000386EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81E1FA741B488B0B000386EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -416,7 +416,7 @@
 		81E1FA661B488B0B000386EE = {
 			isa = PBXGroup;
 			children = (
-				81D349611B4F54D5008C9789 /* ProgramLogicTest.playground */,
+				8102256B1B6AF3F900AB5374 /* MyPlayground.playground */,
 				81E1FA711B488B0B000386EE /* knots */,
 				81E1FA8A1B488B0B000386EE /* countTests */,
 				81E1FA701B488B0B000386EE /* Products */,
@@ -441,8 +441,8 @@
 				81E1FA971B488DD9000386EE /* Task.swift */,
 				813B018A1B4B1EEE00BF6B2F /* TaskDetailViewController.swift */,
 				81F787151B4A03D7007ED96E /* Tools.swift */,
-				8101D1841B64879500EDC4F9 /* KnotsCounter-Bridging-Header.h */,
 				81E1FA741B488B0B000386EE /* AppDelegate.swift */,
+				8101D1841B64879500EDC4F9 /* KnotsCounter-Bridging-Header.h */,
 				81D32C1C1B531846006BFC59 /* icons */,
 				81625DD71B4B1CA2009AB6F9 /* ThirdParty */,
 				81E1FA721B488B0B000386EE /* Supporting Files */,

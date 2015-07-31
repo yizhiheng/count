@@ -102,7 +102,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.iconImageView.image = UIImage(named: tasks[indexPath.row].icon)
         cell.content = tasks[indexPath.row].content
         cell.count = Int(tasks[indexPath.row].count)
-        cell.backgroundColor = bgColors[Int(tasks[indexPath.row].bgColor)]
+        cell.colorBar.backgroundColor = bgColors[Int(tasks[indexPath.row].bgColor)]
         return cell
     }
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -112,6 +112,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         thisCell.countLabel.animate()
         
     }
+    
+
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
@@ -135,7 +137,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
-    
+
     //移动了任务的上下顺序
     func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
         changeIndex(fromIndexPath.row, to: toIndexPath.row)
@@ -158,8 +160,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             updateStoredItem(tasks[sender.tag], Flag.add)
             var indexPath = NSIndexPath(forRow:sender.tag,inSection:0)
             self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
-
-
         } else {
             println("error")
         }
@@ -290,7 +290,6 @@ extension ViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate
     func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
         
         if let img = UIImage(named: "emptySet"){
-            
             return img
         }
         return nil
