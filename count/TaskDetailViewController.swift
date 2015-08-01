@@ -17,6 +17,14 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var startingNumberLabel: UILabel!
     @IBOutlet weak var stepDistanceLabel: UILabel!
     @IBOutlet weak var startingNumberIndicateLabel: UILabel!
+    
+    @IBOutlet weak var settingStatusView: UIView!
+    @IBOutlet weak var nameStatusView: UIView!
+    @IBOutlet weak var startingStatusView: UIView!
+    @IBOutlet weak var stepStatusView: UIView!
+    @IBOutlet weak var iconStatusView: UIView!
+   
+    
 
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -26,25 +34,35 @@ class TaskDetailViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
-        self.view.backgroundColor = bgColors[Int(tasks[tappedTaskIndex].bgColor)]
+        //self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
+        //self.view.backgroundColor = bgColors[Int(tasks[tappedTaskIndex].bgColor)]
+        self.view.backgroundColor = UIColor.whiteColor()
 
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let statusViews = [settingStatusView, nameStatusView, startingStatusView, stepStatusView, iconStatusView]
+        for view in statusViews {
+            view.backgroundColor = UIColor.whiteColor()
+            view.layer.addSublayer(upperBorder(view))
+        }
+        
+        settingStatusView.layer.addSublayer(upperBorder(settingStatusView))
+        
         countLabel.adjustsFontSizeToFitWidth = true
         
         //self.navigationController.navigationBar.barStyle = UIBarStyleBlack
         //
         minusButton.backgroundColor = UIColor.clearColor()
-        minusButton.layer.cornerRadius = 20
+        minusButton.layer.cornerRadius = 25
         minusButton.layer.borderWidth = 0.3
-        minusButton.layer.borderColor = UIColor.whiteColor().CGColor
+        minusButton.layer.borderColor = UIColor.lightGrayColor().CGColor
         
         addButton.backgroundColor = UIColor.clearColor()
-        addButton.layer.cornerRadius = 20
+        addButton.layer.cornerRadius = 25
         addButton.layer.borderWidth = 0.3
-        addButton.layer.borderColor = UIColor.whiteColor().CGColor
+        addButton.layer.borderColor = UIColor.lightGrayColor().CGColor
         //UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
         println("Show Detail of task: \(tappedTaskIndex)")
 

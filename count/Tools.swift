@@ -27,6 +27,12 @@ class Tools {
     }
 }
 
+func upperBorder (view: UIView) -> CALayer {
+    let upperBorder = CALayer()
+    upperBorder.backgroundColor = UIColor.lightGrayColor().CGColor
+    upperBorder.frame = CGRectMake(0, 0, CGRectGetWidth(view.frame), 0.5)
+    return upperBorder
+}
 func updateStoredItem (task: Task, flag: Flag) {
     switch flag {
     case .add: task.count += task.stepDistance

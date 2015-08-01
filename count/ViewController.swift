@@ -30,10 +30,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.view.backgroundColor = UIColor.clearColor()
-        self.navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+//        self.navigationController?.navigationBar.shadowImage = UIImage()
+//        self.navigationController?.view.backgroundColor = UIColor.clearColor()
+//        self.navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
         refresh()
         tableView.reloadData()
     }
@@ -55,8 +55,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let titleLabel = UILabel(frame: CGRectMake(0, 0, 200, 40))
         titleLabel.font = UIFont(name: "Avenir Next", size: 21)
         titleLabel.textAlignment = .Center
-        titleLabel.text = "Knots Counter"
-        titleLabel.textColor = UIColor.whiteColor()
+        titleLabel.text = "KnotsCounter"
+        titleLabel.textColor = UIColor.blackColor()
         titleLabel.backgroundColor = UIColor.clearColor()
         titleLabel.adjustsFontSizeToFitWidth = true
         self.navigationItem.titleView = titleLabel
