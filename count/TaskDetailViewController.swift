@@ -42,7 +42,8 @@ class TaskDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let statusViews = [settingStatusView, nameStatusView, startingStatusView, stepStatusView, iconStatusView]
+        settingStatusView.layer.addSublayer(upperBorder(settingStatusView))
+        let statusViews = [nameStatusView, startingStatusView, stepStatusView, iconStatusView]
         for view in statusViews {
             view.backgroundColor = UIColor.whiteColor()
             view.layer.addSublayer(upperBorder(view))

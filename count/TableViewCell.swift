@@ -28,12 +28,18 @@ class TableViewCell: UITableViewCell {
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        addShadow(countLabel, contentLabel)
+        //addShadow(countLabel, contentLabel)
+        
+//        self.layer.shadowOffset = CGSizeMake(3, 3)
+//        self.layer.shadowRadius = 3
+//        self.layer.shadowColor = UIColor.grayColor().CGColor
+//        self.layer.shadowOpacity = 0.5
+        
         addButton.layer.cornerRadius = 15
-        addButton.layer.borderWidth = 1
+        addButton.layer.borderWidth = 0.3
         addButton.layer.borderColor = UIColor.lightGrayColor().CGColor
         minusButton.layer.cornerRadius = 15
-        minusButton.layer.borderWidth = 1
+        minusButton.layer.borderWidth = 0.3
         minusButton.layer.borderColor = UIColor.lightGrayColor().CGColor
 
     }

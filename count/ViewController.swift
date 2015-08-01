@@ -92,6 +92,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return tasks.count
     }
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 80
+    }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("task", forIndexPath: indexPath) as! TableViewCell
         cell.countLabel.tag = indexPath.row
@@ -103,6 +106,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.content = tasks[indexPath.row].content
         cell.count = Int(tasks[indexPath.row].count)
         cell.colorBar.backgroundColor = bgColors[Int(tasks[indexPath.row].bgColor)]
+        
+        
+        cell.layer.shadowOffset = CGSizeMake(3, 3)
+        cell.layer.shadowRadius = 3
+        cell.layer.shadowColor = UIColor.grayColor().CGColor
+        cell.layer.shadowOpacity = 0.5
+        cell.layer.cornerRadius = 6.0
+        cell.layer.masksToBounds = true
+        
         return cell
     }
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -110,6 +122,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         thisCell.countLabel.animation = "pop"
         thisCell.countLabel.duration = 0.5
         thisCell.countLabel.animate()
+        
+        
+//        
+//        cell.contentView.backgroundColor = [UIColor clearColor];
+//        UIView *whiteRoundedCornerView = [[UIView alloc] initWithFrame:CGRectMake(10,10,300,70)];
+//        whiteRoundedCornerView.backgroundColor = [UIColor whiteColor];
+//        whiteRoundedCornerView.layer.masksToBounds = NO;
+//        whiteRoundedCornerView.layer.cornerRadius = 3.0;
+//        whiteRoundedCornerView.layer.shadowOffset = CGSizeMake(-1, 1);
+//        whiteRoundedCornerView.layer.shadowOpacity = 0.5;
+//        [cell.contentView addSubview:whiteRoundedCornerView];
+//        [cell.contentView sendSubviewToBack:whiteRoundedCornerView];
+        
         
     }
     
