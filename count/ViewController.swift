@@ -17,16 +17,18 @@ let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDe
 var tasks = [Task]()
 var tappedTaskIndex: Int = 0
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    private let sectionInsets = UIEdgeInsets(top: 10.0, left: 0, bottom: 10.0, right: 0)
     var normalButtonIs = true
-    @IBOutlet weak var editingButton: MenuControl!
+
     @IBOutlet weak var newTaskButton: UIButton!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var taskCollectionView: UICollectionView!
+
     
     deinit {
-        self.tableView.emptyDataSetSource = nil
-        self.tableView.emptyDataSetDelegate = nil
+        self.taskCollectionView.emptyDataSetSource = nil
+        self.taskCollectionView.emptyDataSetDelegate = nil
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -35,7 +37,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        self.navigationController?.view.backgroundColor = UIColor.clearColor()
 //        self.navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
         refresh()
-        tableView.reloadData()
+        taskCollectionView.reloadData()
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +46,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         //self.navigationController.navigationBar.barStyle = UIBarStyleBlack
         //self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
         
-        tableView.emptyDataSetSource = self
+        taskCollectionView.emptyDataSetSource = self
+        
+        taskCollectionView.dataSource = self
+        taskCollectionView.delegate = self
+
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         
@@ -61,42 +68,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         titleLabel.adjustsFontSizeToFitWidth = true
         self.navigationItem.titleView = titleLabel
 
-        tableView.separatorStyle = .None
-        //tableView.contentMode = UIViewContentMode.ScaleToFill
-        //self.navigationItem.leftBarButtonItem = self.editButtonItem()
-        
-        //editingButton.closeAnimation()
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+
     
-    override func setEditing(editing: Bool, animated: Bool) {
-        if (!tableView.editing) {
-            // Execute tasks for editing status
-            self.tableView.setEditing(true, animated: true)
-        } else {
-            // Execute tasks for non-editing status.
-            self.tableView.setEditing(false, animated: true)
-        }
-    }
+    // MARK: UICollectionViewDataSource
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tasks.count
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 80
-    }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("task", forIndexPath: indexPath) as! TableViewCell
+
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("TaskCell", forIndexPath: indexPath) as! TaskCell
+        
         cell.countLabel.tag = indexPath.row
         cell.addButton.tag = indexPath.row
         cell.minusButton.tag = indexPath.row
@@ -106,115 +99,52 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.content = tasks[indexPath.row].content
         cell.count = Int(tasks[indexPath.row].count)
         cell.colorBar.backgroundColor = bgColors[Int(tasks[indexPath.row].bgColor)]
-        
-        
-        cell.layer.shadowOffset = CGSizeMake(3, 3)
-        cell.layer.shadowRadius = 3
-        cell.layer.shadowColor = UIColor.grayColor().CGColor
-        cell.layer.shadowOpacity = 0.5
-        cell.layer.cornerRadius = 6.0
-        cell.layer.masksToBounds = true
+        cell.updateUI()
         
         return cell
     }
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        let thisCell = cell as! TableViewCell
+    
+    // MARK: UICollectionViewDelegate
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        println(indexPath)
+//        tappedTaskIndex = indexPath.row
+//        self.performSegueWithIdentifier("showDetailSegue", sender: nil)
+    }
+    
+    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        let thisCell = cell as! TaskCell
         thisCell.countLabel.animation = "pop"
         thisCell.countLabel.duration = 0.5
         thisCell.countLabel.animate()
-        
-        
-//        
-//        cell.contentView.backgroundColor = [UIColor clearColor];
-//        UIView *whiteRoundedCornerView = [[UIView alloc] initWithFrame:CGRectMake(10,10,300,70)];
-//        whiteRoundedCornerView.backgroundColor = [UIColor whiteColor];
-//        whiteRoundedCornerView.layer.masksToBounds = NO;
-//        whiteRoundedCornerView.layer.cornerRadius = 3.0;
-//        whiteRoundedCornerView.layer.shadowOffset = CGSizeMake(-1, 1);
-//        whiteRoundedCornerView.layer.shadowOpacity = 0.5;
-//        [cell.contentView addSubview:whiteRoundedCornerView];
-//        [cell.contentView sendSubviewToBack:whiteRoundedCornerView];
-        
-        
     }
     
-
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            println("delete at \(indexPath.row)")
-            deleteTaskAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            
-            //循环更新加减button的tag
-            for var row = 0; row < tableView.numberOfRowsInSection(0); row++ {
-                let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: row, inSection: 0)) as! TableViewCell
-                cell.addButton.tag = row
-                cell.minusButton.tag = row
-            }
-            
-            if tasks.count == 0 {
-                //self.tableView.emptyDataSetSource = self
-                self.tableView.reloadData()
-            }
-            
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let cellHeight = 60
+        return CGSizeMake(taskCollectionView.bounds.size.width - 10.0, CGFloat(cellHeight))
     }
 
-    //移动了任务的上下顺序
-    func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-        changeIndex(fromIndexPath.row, to: toIndexPath.row)
-        refresh()
-        tableView.reloadData()
-        
-    }
-    
-    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tappedTaskIndex = indexPath.row
-        self.performSegueWithIdentifier("showDetailSegue", sender: nil)
-    }
 
     func addTapped (sender: UIButton) {
-        if sender.tag < tasks.count {
-            updateStoredItem(tasks[sender.tag], Flag.add)
-            var indexPath = NSIndexPath(forRow:sender.tag,inSection:0)
-            self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
-        } else {
-            println("error")
-        }
+        println(sender.tag)
+//        if sender.tag < tasks.count {
+//            updateStoredItem(tasks[sender.tag], Flag.add)
+//            var indexPath = NSIndexPath(forRow:sender.tag,inSection:0)
+//            
+//            //self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+//            
+//            taskCollectionView.reloadItemsAtIndexPaths([indexPath])
+//        } else {
+//            println("error")
+//        }
 
     }
     func minusTapped (sender: UIButton) {
         updateStoredItem(tasks[sender.tag], Flag.minus)
         var indexPath = NSIndexPath(forRow:sender.tag,inSection:0)
-        self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+        //self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
     }
     
-
-    
-    func changeIndex (from: Int, to: Int) {
-        for task in tasks {
-            if from > to {
-                if task.index >= Int32(to) && task.index < Int32(from) {
-                    task.index++
-                }
-            }
-            if from < to {
-                if task.index > Int32(from) && task.index <= Int32(to) {
-                    task.index--
-                }
-                
-            }
-        }
-        tasks[from].index = Int32(to)
-        save()
-    }
     func deleteTaskAtIndex (index: Int) {
         managedObjectContext.deleteObject(tasks[index])
         tasks.removeAtIndex(index)
@@ -225,6 +155,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         save()
     }
+    
     func addNewTask (content: String) {
         let entity =  NSEntityDescription.entityForName("Task", inManagedObjectContext: managedObjectContext)
         let task = Task(entity: entity!, insertIntoManagedObjectContext: managedObjectContext)
@@ -249,12 +180,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         var row = tasks.count - 1
         var indexPath = NSIndexPath(forRow: row, inSection: 0)
         if tasks.count == 1 {
-            tableView.reloadData()
+            //tableView.reloadData()
+            taskCollectionView.reloadData()
         } else {
-            tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+            //tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+            taskCollectionView.insertItemsAtIndexPaths([indexPath])
         }
-        
-        
     }
     
     func refresh () -> Bool {
@@ -271,19 +202,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     // MARK: - IBActions
-    @IBAction func editButtonTapped(sender: AnyObject) {
-        
-        let isTableViewNormal = !tableView.editing
-        println(isTableViewNormal)
-        
-        if editingButton.isNormal == isTableViewNormal {
-            editingButton.isNormal ? editingButton.closeAnimation() : editingButton.menuAnimation()
-            self.tableView.setEditing(!tableView.editing, animated: true)
-        } else {
-            tableView.editing = isTableViewNormal
-        }
 
-    }
     
     @IBAction func newTaskButtonTapped(sender: UIButton) {
         

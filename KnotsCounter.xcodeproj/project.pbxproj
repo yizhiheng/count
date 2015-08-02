@@ -119,7 +119,7 @@
 		81E1FA821B488B0B000386EE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81E1FA801B488B0B000386EE /* LaunchScreen.xib */; };
 		81E1FA8E1B488B0B000386EE /* countTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E1FA8D1B488B0B000386EE /* countTests.swift */; };
 		81E1FA981B488DD9000386EE /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E1FA971B488DD9000386EE /* Task.swift */; };
-		81E1FA9C1B48E93E000386EE /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E1FA9B1B48E93E000386EE /* TableViewCell.swift */; };
+		81E1FA9C1B48E93E000386EE /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E1FA9B1B48E93E000386EE /* TaskCell.swift */; };
 		81F787161B4A03D7007ED96E /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F787151B4A03D7007ED96E /* Tools.swift */; };
 /* End PBXBuildFile section */
 
@@ -255,7 +255,7 @@
 		81E1FA8C1B488B0B000386EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81E1FA8D1B488B0B000386EE /* countTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = countTests.swift; sourceTree = "<group>"; };
 		81E1FA971B488DD9000386EE /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		81E1FA9B1B48E93E000386EE /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		81E1FA9B1B48E93E000386EE /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		81F787151B4A03D7007ED96E /* Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -437,7 +437,7 @@
 			children = (
 				81E1FA7B1B488B0B000386EE /* Main.storyboard */,
 				81E1FA791B488B0B000386EE /* ViewController.swift */,
-				81E1FA9B1B48E93E000386EE /* TableViewCell.swift */,
+				81E1FA9B1B48E93E000386EE /* TaskCell.swift */,
 				81E1FA971B488DD9000386EE /* Task.swift */,
 				813B018A1B4B1EEE00BF6B2F /* TaskDetailViewController.swift */,
 				81F787151B4A03D7007ED96E /* Tools.swift */,
@@ -688,7 +688,7 @@
 				81BAF6DB1B4CCD8100C71F3A /* AutoTextView.swift in Sources */,
 				81BAF6F11B4CCD8100C71F3A /* SpringTextView.swift in Sources */,
 				81BAF6DD1B4CCD8100C71F3A /* DesignableButton.swift in Sources */,
-				81E1FA9C1B48E93E000386EE /* TableViewCell.swift in Sources */,
+				81E1FA9C1B48E93E000386EE /* TaskCell.swift in Sources */,
 				81E1FA781B488B0B000386EE /* count.xcdatamodeld in Sources */,
 				8101D19C1B69B08400EDC4F9 /* JiroTextField.swift in Sources */,
 			);

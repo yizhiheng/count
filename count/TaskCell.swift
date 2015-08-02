@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
+class TaskCell: UICollectionViewCell {
     
     @IBOutlet weak var colorBar: UIView!
     @IBOutlet weak var iconImageView: UIImageView!
@@ -15,6 +15,7 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var countLabel: SpringLabel!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var minusButton: UIButton!
+    @IBOutlet weak var boundView: TaskCell!
     
     var content: String? {
         didSet {
@@ -26,26 +27,27 @@ class TableViewCell: UITableViewCell {
             countLabel.text = "\(count!)"
         }
     }
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        //addShadow(countLabel, contentLabel)
+    
+    override func drawRect(rect: CGRect) {
         
-//        self.layer.shadowOffset = CGSizeMake(3, 3)
-//        self.layer.shadowRadius = 3
-//        self.layer.shadowColor = UIColor.grayColor().CGColor
-//        self.layer.shadowOpacity = 0.5
-        
+    }
+    
+    func updateUI() {
+        boundView.layer.cornerRadius = 3.0
+        boundView.layer.masksToBounds = true
+        self.backgroundColor = UIColor.clearColor()
+        self.layer.masksToBounds = false
+        self.layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: 3.0).CGPath
+        self.layer.shadowOffset = CGSizeMake(0.5, 0.5)
+        self.layer.shadowColor = UIColor.lightGrayColor().CGColor
+        self.layer.shadowOpacity = 0.7
+        self.layer.shadowRadius = 1
         addButton.layer.cornerRadius = 15
         addButton.layer.borderWidth = 0.3
         addButton.layer.borderColor = UIColor.lightGrayColor().CGColor
         minusButton.layer.cornerRadius = 15
         minusButton.layer.borderWidth = 0.3
         minusButton.layer.borderColor = UIColor.lightGrayColor().CGColor
-
     }
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
-    }
-
+    
 }
