@@ -50,6 +50,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         taskCollectionView.dataSource = self
         taskCollectionView.delegate = self
+        
 
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
@@ -85,11 +86,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return tasks.count
     }
     
-
-    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("TaskCell", forIndexPath: indexPath) as! TaskCell
-        
         cell.countLabel.tag = indexPath.row
         cell.addButton.tag = indexPath.row
         cell.minusButton.tag = indexPath.row
@@ -107,16 +105,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     // MARK: UICollectionViewDelegate
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        println(indexPath)
-//        tappedTaskIndex = indexPath.row
-//        self.performSegueWithIdentifier("showDetailSegue", sender: nil)
+
+        tappedTaskIndex = indexPath.row
+        self.performSegueWithIdentifier("showDetailSegue", sender: nil)
     }
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         let thisCell = cell as! TaskCell
-        thisCell.countLabel.animation = "pop"
-        thisCell.countLabel.duration = 0.5
-        thisCell.countLabel.animate()
+        thisCell.popCountLabel()
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -126,23 +122,28 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
 
     func addTapped (sender: UIButton) {
-        println(sender.tag)
-//        if sender.tag < tasks.count {
-//            updateStoredItem(tasks[sender.tag], Flag.add)
-//            var indexPath = NSIndexPath(forRow:sender.tag,inSection:0)
-//            
-//            //self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
-//            
-//            taskCollectionView.reloadItemsAtIndexPaths([indexPath])
-//        } else {
-//            println("error")
-//        }
+
+        if sender.tag < tasks.count {
+            updateStoredItem(tasks[sender.tag], Flag.add)
+            var indexPath = NSIndexPath(forRow:sender.tag,inSection:0)
+            let cell = taskCollectionView.cellForItemAtIndexPath(indexPath) as! TaskCell
+            cell.count = Int(tasks[sender.tag].count)
+            cell.popCountLabel()
+        } else {
+            println("error")
+        }
 
     }
     func minusTapped (sender: UIButton) {
-        updateStoredItem(tasks[sender.tag], Flag.minus)
-        var indexPath = NSIndexPath(forRow:sender.tag,inSection:0)
-        //self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+        if sender.tag < tasks.count {
+            updateStoredItem(tasks[sender.tag], Flag.minus)
+            var indexPath = NSIndexPath(forRow:sender.tag,inSection:0)
+            let cell = taskCollectionView.cellForItemAtIndexPath(indexPath) as! TaskCell
+            cell.count = Int(tasks[sender.tag].count)
+            cell.popCountLabel()
+        } else {
+            println("error")
+        }
     }
     
     func deleteTaskAtIndex (index: Int) {
@@ -203,7 +204,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     // MARK: - IBActions
 
-    
     @IBAction func newTaskButtonTapped(sender: UIButton) {
         
         let alert = SCLAlertView()

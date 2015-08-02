@@ -17,19 +17,15 @@ class TaskCell: UICollectionViewCell {
     @IBOutlet weak var minusButton: UIButton!
     @IBOutlet weak var boundView: TaskCell!
     
-    var content: String? {
+    var content: String! {
         didSet {
             contentLabel.text = content
         }
     }
-    var count: Int? {
+    var count: Int! {
         didSet {
-            countLabel.text = "\(count!)"
+            countLabel.text = "\(count)"
         }
-    }
-    
-    override func drawRect(rect: CGRect) {
-        
     }
     
     func updateUI() {
@@ -50,4 +46,9 @@ class TaskCell: UICollectionViewCell {
         minusButton.layer.borderColor = UIColor.lightGrayColor().CGColor
     }
     
+    func popCountLabel() {
+        countLabel.animation = "pop"
+        countLabel.duration = 0.5
+        countLabel.animate()
+    }
 }
