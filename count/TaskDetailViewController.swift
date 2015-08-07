@@ -26,8 +26,9 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var stepStatusView: UIView!
     @IBOutlet weak var iconStatusView: UIView!
     
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var maskButton: UIButton!
     
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var statusViewHeight: NSLayoutConstraint!
 
@@ -42,11 +43,7 @@ class TaskDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if DeviceType.IS_IPHONE_4 {
-            statusViewHeight.constant = 45.0
-        } else {
-            println("no")
-        }
+        modifyLayout()
         
         
         let nameViewTap = UITapGestureRecognizer(target: self, action: "nameViewTapped:")
@@ -65,10 +62,6 @@ class TaskDetailViewController: UIViewController {
             view.layer.addSublayer(upperBorder(view))
         }
         
-        countLabel.adjustsFontSizeToFitWidth = true
-        
-        animateSwing(countLabel, contentLabel)
-        
         minusButton.backgroundColor = UIColor.clearColor()
         minusButton.layer.cornerRadius = 25
         minusButton.layer.borderWidth = 0.3
@@ -78,12 +71,24 @@ class TaskDetailViewController: UIViewController {
         addButton.layer.cornerRadius = 25
         addButton.layer.borderWidth = 0.3
         addButton.layer.borderColor = UIColor.lightGrayColor().CGColor
-
+        
+        animateSwing(countLabel, contentLabel)
         showData()
         setScrollView()
         
         
     }
+    
+    func modifyLayout () {
+        countLabel.adjustsFontSizeToFitWidth = true
+        if DeviceType.IS_IPHONE_4 {
+            statusViewHeight.constant = 45.0
+        } else {
+            
+        }
+        
+    }
+    
     func showData () {
         colorBarView.backgroundColor = bgColors[Int(tasks[tappedTaskIndex].bgColor)]
         countLabel.text = "\(tasks[tappedTaskIndex].count)"
@@ -220,7 +225,6 @@ class TaskDetailViewController: UIViewController {
         alert.showEdit("Change step distance...", subTitle:"What is the new step distance of this task?")
     }
     func iconViewTapped (sender: AnyObject) {
-        
         println(sender)
         
     }
