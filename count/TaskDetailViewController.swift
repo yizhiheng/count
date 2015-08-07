@@ -13,21 +13,23 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var minusButton: UIButton!
     @IBOutlet weak var countLabel: SpringLabel!
-    @IBOutlet weak var contentLabel: UILabel!
-    @IBOutlet weak var startingNumberLabel: UILabel!
-    @IBOutlet weak var stepDistanceLabel: UILabel!
-    @IBOutlet weak var startingNumberIndicateLabel: UILabel!
+    @IBOutlet weak var contentLabel: SpringLabel!
+    @IBOutlet weak var startingNumberLabel: SpringLabel!
+    @IBOutlet weak var stepDistanceLabel: SpringLabel!
+    @IBOutlet weak var startingNumberIndicateLabel: SpringLabel!
     @IBOutlet weak var colorBarView: UIView!
+    @IBOutlet weak var secondContentLabel: SpringLabel!
     
-    @IBOutlet weak var secondContentLabel: UILabel!
     @IBOutlet weak var settingStatusView: UIView!
     @IBOutlet weak var nameStatusView: UIView!
     @IBOutlet weak var startingStatusView: UIView!
     @IBOutlet weak var stepStatusView: UIView!
     @IBOutlet weak var iconStatusView: UIView!
-   
     
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    
+    @IBOutlet weak var statusViewHeight: NSLayoutConstraint!
 
     var taskIndex: Int? {
         didSet {
@@ -40,19 +42,21 @@ class TaskDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if DeviceType.IS_IPHONE_4 {
+            statusViewHeight.constant = 45.0
+        } else {
+            println("no")
+        }
+        
+        
         let nameViewTap = UITapGestureRecognizer(target: self, action: "nameViewTapped:")
         nameStatusView.addGestureRecognizer(nameViewTap)
-        
         let startingViewTap = UITapGestureRecognizer(target: self, action: "startingViewTapped:")
         startingStatusView.addGestureRecognizer(startingViewTap)
-        
         let stepViewTap = UITapGestureRecognizer(target: self, action: "stepViewTapped:")
         stepStatusView.addGestureRecognizer(stepViewTap)
-        
         let iconViewTap = UITapGestureRecognizer(target: self, action: "iconViewTapped:")
         iconStatusView.addGestureRecognizer(iconViewTap)
-        
-        
         
         settingStatusView.layer.addSublayer(upperBorder(settingStatusView))
         let statusViews = [nameStatusView, startingStatusView, stepStatusView, iconStatusView]
@@ -61,9 +65,9 @@ class TaskDetailViewController: UIViewController {
             view.layer.addSublayer(upperBorder(view))
         }
         
-        settingStatusView.layer.addSublayer(upperBorder(settingStatusView))
-        
         countLabel.adjustsFontSizeToFitWidth = true
+        
+        animateSwing(countLabel, contentLabel)
         
         minusButton.backgroundColor = UIColor.clearColor()
         minusButton.layer.cornerRadius = 25
@@ -74,8 +78,6 @@ class TaskDetailViewController: UIViewController {
         addButton.layer.cornerRadius = 25
         addButton.layer.borderWidth = 0.3
         addButton.layer.borderColor = UIColor.lightGrayColor().CGColor
-        
-        println("Show Detail of task: \(tappedTaskIndex)")
 
         showData()
         setScrollView()

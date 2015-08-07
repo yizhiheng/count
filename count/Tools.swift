@@ -72,6 +72,16 @@ func fitInt32 (text: String) -> Bool {
     return false
 }
 
+func animateSwing(objects: SpringLabel...) {
+    for object in objects {
+        object.animation = "swing"
+        object.curve = "spring"
+        object.duration = 0.8
+        object.animate()
+    }
+
+}
+
 private extension UIColor
 {
     convenience init(red: Int, green: Int, blue: Int)
@@ -83,4 +93,29 @@ private extension UIColor
         self.init(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
     }
 }
+
+enum UIUserInterfaceIdiom : Int
+{
+    case Unspecified
+    case Phone
+    case Pad
+}
+
+struct ScreenSize
+{
+    static let SCREEN_WIDTH         = UIScreen.mainScreen().bounds.size.width
+    static let SCREEN_HEIGHT        = UIScreen.mainScreen().bounds.size.height
+    static let SCREEN_MAX_LENGTH    = max(ScreenSize.SCREEN_WIDTH, ScreenSize.SCREEN_HEIGHT)
+    static let SCREEN_MIN_LENGTH    = min(ScreenSize.SCREEN_WIDTH, ScreenSize.SCREEN_HEIGHT)
+}
+
+struct DeviceType
+{
+    static let IS_IPHONE_4          = UIDevice.currentDevice().userInterfaceIdiom == .Phone && ScreenSize.SCREEN_MAX_LENGTH < 568.0
+    static let IS_IPHONE_5          = UIDevice.currentDevice().userInterfaceIdiom == .Phone && ScreenSize.SCREEN_MAX_LENGTH == 568.0
+    static let IS_IPHONE_6          = UIDevice.currentDevice().userInterfaceIdiom == .Phone && ScreenSize.SCREEN_MAX_LENGTH == 667.0
+    static let IS_IPHONE_6P         = UIDevice.currentDevice().userInterfaceIdiom == .Phone && ScreenSize.SCREEN_MAX_LENGTH == 736.0
+    static let IS_IPAD              = UIDevice.currentDevice().userInterfaceIdiom == .Pad && ScreenSize.SCREEN_MAX_LENGTH == 1024.0
+}
+
 

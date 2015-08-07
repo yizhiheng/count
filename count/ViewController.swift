@@ -52,7 +52,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         taskCollectionView.delegate = self
         
 
-        
+    
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         
         newTaskButton.layer.shadowOffset = CGSizeMake(3, 3)
