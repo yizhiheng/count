@@ -16,15 +16,15 @@ let bgColors: [UIColor] = [
     UIColor(red: 209, green: 220, blue: 224),
 ]
 
-class Tools {
-    func addShadow(buttons: UIButton...) {
-        for button in buttons {
-            button.layer.shadowOffset = CGSizeMake(3, 3)
-            button.layer.shadowRadius = 3
-            button.layer.shadowColor = UIColor.grayColor().CGColor
-            button.layer.shadowOpacity = 0.5
+func deleteTaskAtIndex (index: Int) {
+    managedObjectContext.deleteObject(tasks[index])
+    tasks.removeAtIndex(index)
+    for task in tasks {
+        if task.index > Int32(index) {
+            task.index -= 1
         }
     }
+    save()
 }
 
 func upperBorder (view: UIView) -> CALayer {
@@ -34,6 +34,9 @@ func upperBorder (view: UIView) -> CALayer {
     return upperBorder
 }
 func updateStoredItem (task: Task, flag: Flag) {
+    
+    //Bug: 需要加一个计算范围判断
+    
     switch flag {
     case .add: task.count += task.stepDistance
     case .minus:
@@ -65,7 +68,7 @@ func addShadow(objects: AnyObject...) {
 func fitInt32 (text: String) -> Bool {
     if text.toInt() != nil {
         let intNum = text.toInt()
-        if intNum >= 0 && intNum <= 2147483647 {
+        if intNum >= 0 && intNum <= 999999999 {
             return true
         }
     }

@@ -146,16 +146,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
     }
     
-    func deleteTaskAtIndex (index: Int) {
-        managedObjectContext.deleteObject(tasks[index])
-        tasks.removeAtIndex(index)
-        for task in tasks {
-            if task.index > Int32(index) {
-                task.index -= 1
-            }
-        }
-        save()
-    }
+
     
     func addNewTask (content: String) {
         let entity =  NSEntityDescription.entityForName("Task", inManagedObjectContext: managedObjectContext)

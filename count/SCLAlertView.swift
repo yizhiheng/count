@@ -266,7 +266,7 @@ public class SCLAlertView: UIViewController {
         //txt.clearButtonMode = UITextFieldViewMode.WhileEditing
         //txt.layer.masksToBounds = true
         txt.borderActiveColor = UIColor.blackColor()
-        txt.borderInactiveColor = UIColor.blueColor()
+        txt.borderInactiveColor = UIColorFromRGB(0xffb527)
         txt.placeholderColor = UIColor.grayColor()
         //txt.layer.borderWidth = 1.0
         if title != nil {
@@ -338,7 +338,7 @@ public class SCLAlertView: UIViewController {
     }
     
     func buttonRelease(btn:SCLButton) {
-        btn.backgroundColor = viewColor
+        btn.backgroundColor = UIColor.whiteColor()
     }
     
     //Dismiss keyboard when tapped outside textfield
@@ -378,9 +378,11 @@ public class SCLAlertView: UIViewController {
         return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Wait, colorStyle: colorStyle, colorTextButton: colorTextButton)
     }
     
-    public func showEdit(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=0xA429FF, colorTextButton: UInt=0xFFFFFF) -> SCLAlertViewResponder {
+    ////////////////////////////////////////////////
+    public func showEdit(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=0xffb527, colorTextButton: UInt=0xffb527) -> SCLAlertViewResponder {
         return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Edit, colorStyle: colorStyle, colorTextButton: colorTextButton)
     }
+    ////////////////////////////////////////////////
     
     // showTitle(view, title, subTitle, style)
     public func showTitle(title: String, subTitle: String, style: SCLAlertViewStyle, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt?, colorTextButton: UInt=0xFFFFFF) -> SCLAlertViewResponder {
@@ -474,8 +476,11 @@ public class SCLAlertView: UIViewController {
         for txt in inputs {
             txt.layer.borderColor = viewColor.CGColor
         }
+        //修改按钮样式
         for btn in buttons {
-            btn.backgroundColor = viewColor
+            btn.backgroundColor = UIColor.whiteColor()
+            btn.layer.borderWidth = 0.5
+            btn.layer.borderColor = UIColor.lightGrayColor().CGColor
             btn.setTitleColor(UIColorFromRGB(colorTextButton!), forState:UIControlState.Normal)
         }
         

@@ -46,7 +46,6 @@ class TaskDetailViewController: UIViewController {
         
         modifyLayout()
         
-        
         let nameViewTap = UITapGestureRecognizer(target: self, action: "nameViewTapped:")
         nameStatusView.addGestureRecognizer(nameViewTap)
         let startingViewTap = UITapGestureRecognizer(target: self, action: "startingViewTapped:")
@@ -148,7 +147,6 @@ class TaskDetailViewController: UIViewController {
         let imageName = sender.restorationIdentifier!
         tasks[tappedTaskIndex].icon = imageName
         save()
-        
         taskIcon.image = UIImage(named: imageName)
         taskIcon.animation = "squeezeUp"
         taskIcon.curve = "spring"
@@ -268,6 +266,7 @@ class TaskDetailViewController: UIViewController {
         }
     }
     
+    // MARK: - IBActions
     @IBAction func addTapped(sender: UIButton) {
         updateStoredItem(tasks[tappedTaskIndex], Flag.add)
         countLabel.animation = "pop"
@@ -283,6 +282,11 @@ class TaskDetailViewController: UIViewController {
         showData()
     }
     
+    @IBAction func deleteButtonTapped(sender: AnyObject) {
+        println("\(tappedTaskIndex)")
+        deleteTaskAtIndex(tappedTaskIndex)
+        self.performSegueWithIdentifier("unwindToMain", sender: self)
+    }
     @IBAction func maskButtonTapped(sender: AnyObject) {
         hideScrollView()
     }
