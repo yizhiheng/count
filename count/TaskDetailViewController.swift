@@ -4,7 +4,6 @@
 //
 //  Created by Zhiheng Yi on 2015-07-06.
 //  Copyright (c) 2015 Zhiheng Yi. All rights reserved.
-//
 
 import UIKit
 class TaskDetailViewController: UIViewController {
@@ -20,6 +19,7 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var colorBarView: UIView!
     @IBOutlet weak var secondContentLabel: SpringLabel!
     
+    @IBOutlet weak var mainContentView: UIView!
     @IBOutlet weak var settingStatusView: UIView!
     @IBOutlet weak var nameStatusView: UIView!
     @IBOutlet weak var startingStatusView: UIView!
@@ -27,10 +27,11 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var iconStatusView: UIView!
     
     @IBOutlet weak var maskButton: UIButton!
-    
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var statusViewHeight: NSLayoutConstraint!
+    
+    var scrollViewHeight: CGFloat! = 300.0
 
     var taskIndex: Int? {
         didSet {
@@ -83,9 +84,13 @@ class TaskDetailViewController: UIViewController {
         countLabel.adjustsFontSizeToFitWidth = true
         if DeviceType.IS_IPHONE_4 {
             statusViewHeight.constant = 45.0
+        } else if DeviceType.IS_IPHONE_5 {
+            statusViewHeight.constant = 50.0
         } else {
-            
+          statusViewHeight.constant = 60.0
         }
+        scrollViewHeight = statusViewHeight.constant * 5
+        self.scrollView.transform = CGAffineTransformMakeTranslation(0, scrollViewHeight)
         
     }
     
@@ -102,42 +107,54 @@ class TaskDetailViewController: UIViewController {
         
         let iconNameArray =  ["shop", "anchor", "booklet", "caution", "cruise", "gamecontroller", "hourglass", "paintroller", "rainbow", "spaceshuttle", "tractor", "art", "briefcase", "chat", "denied", "gas", "lightbulb", "parachute", "recycle", "stack", "travelerbag", "bike", "brightness", "check", "fashion", "hazard", "megaphone2", "phone", "ribbon", "star", "ufo", "blimp", "browser", "compass", "flame", "heart", "merge", "plane", "rocket", "submarine", "unlocked", "bolt", "car", "compose", "flash", "helicopter", "microphone", "present", "running", "support", "windy", "bomb", "cart", "countdown", "flower", "hotair", "motorcycle", "racingflags", "tools", "x"]
 
-//        scrollView.pagingEnabled = true
-//        scrollView.bounces = true
-//        scrollView.clipsToBounds = true
-//        
-//        let buttonLength: CGFloat = 30
-//        let buttonsCountInPage: CGFloat = 8
-//        let viewWidth = self.view.frame.width
-//        var contentLength: CGFloat?
-//        var buttonPadding: CGFloat = (viewWidth - buttonLength * CGFloat(buttonsCountInPage)) / (buttonsCountInPage + 1)
-//
-//        let yPosition = scrollView.frame.height / 2 - buttonLength / 2
-//        var xPosition: CGFloat = 16
-//        
-//        for name in iconNameArray {
-//            
-//            var newButton = UIButton(frame: CGRectMake(CGFloat(xPosition), yPosition, buttonLength, buttonLength))
-//            newButton.setImage(UIImage(named: name), forState: UIControlState.Normal)
-//            newButton.restorationIdentifier = name
-//            newButton.addTarget(self, action: "iconButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
-//            
-//            scrollView.addSubview(newButton)
-//            xPosition += buttonPadding
-//            xPosition += buttonLength
-//        }
-//        contentLength = xPosition + buttonPadding
-//        scrollView.contentSize = CGSize(width: contentLength!, height: 40)
+        scrollView.pagingEnabled = true
+        scrollView.bounces = true
+        scrollView.clipsToBounds = false
+        scrollView.contentSize = CGSizeMake(2 * view.frame.size.width, scrollView.frame.size.height)
+        
+        
+        let viewWidth = view.frame.size.width
+        let viewHeight = scrollView.frame.size.height
+        let buttonLength: CGFloat = 50
+        let verticalPadding = (viewHeight - 4 * buttonLength) / 5
+        let horizontalPadding = (viewWidth - 4 * buttonLength) / 5
+        
+        var verticalPosition = verticalPadding
+        var horizontalPosition = horizontalPadding
+        
+        for index in 0...16 {
+            let button = UIButton(frame: CGRectMake(horizontalPosition, verticalPosition, buttonLength, buttonLength))
+            button.setImage(UIImage(named: iconNameArray[index]), forState: UIControlState.Normal)
+            let name = iconNameArray[index]
+            button.restorationIdentifier = name
+            button.addTarget(self, action: "iconButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
+            
+            scrollView.addSubview(button)
+            
+            if index == 3 || index == 7 || index == 11 {
+                horizontalPosition = horizontalPadding
+                verticalPosition += buttonLength + verticalPadding
+            } else if index == 15 {
+                horizontalPosition += buttonLength + 2 * horizontalPadding
+                verticalPosition = verticalPadding
+            } else {
+                horizontalPosition += buttonLength + horizontalPadding
+            }
+            
+        }
+
     }
     func iconButtonTapped (sender: UIButton) {
         let imageName = sender.restorationIdentifier!
         tasks[tappedTaskIndex].icon = imageName
         save()
+        
         taskIcon.image = UIImage(named: imageName)
         taskIcon.animation = "squeezeUp"
         taskIcon.curve = "spring"
-        taskIcon.duration = 1.0
+        taskIcon.duration = 0.8
         taskIcon.animate()
+        hideScrollView()
     }
     
     func nameViewTapped (sender: AnyObject) {
@@ -224,9 +241,31 @@ class TaskDetailViewController: UIViewController {
         }
         alert.showEdit("Change step distance...", subTitle:"What is the new step distance of this task?")
     }
+    
     func iconViewTapped (sender: AnyObject) {
-        println(sender)
-        
+        showMask()
+        scrollView.hidden = false
+        scrollView.transform = CGAffineTransformMakeTranslation(0, 300)
+        spring(0.5) {
+            self.scrollView.transform = CGAffineTransformMakeTranslation(0, 0)
+            self.mainContentView.transform = CGAffineTransformMakeScale(0.8, 0.8)
+        }
+    }
+    
+    func showMask() {
+        self.maskButton.hidden = false
+        self.maskButton.alpha = 0
+        spring(0.5) {
+            self.maskButton.alpha = 1
+        }
+    }
+    
+    func hideScrollView() {
+        spring(0.5) {
+            self.maskButton.alpha = 0
+            self.scrollView.transform = CGAffineTransformMakeTranslation(0, self.scrollViewHeight)
+            self.mainContentView.transform = CGAffineTransformMakeScale(1, 1)
+        }
     }
     
     @IBAction func addTapped(sender: UIButton) {
@@ -242,6 +281,11 @@ class TaskDetailViewController: UIViewController {
         countLabel.duration = 0.5
         countLabel.animate()
         showData()
-    }    
+    }
+    
+    @IBAction func maskButtonTapped(sender: AnyObject) {
+        hideScrollView()
+    }
+    
 
 }
