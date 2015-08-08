@@ -54,12 +54,13 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Running" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPg-kA-L7f">
-                                                            <rect key="frame" x="51" y="19" width="65" height="24"/>
+                                                            <rect key="frame" x="51" y="18" width="399" height="23.5"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                            <color key="textColor" red="0.20784313725490194" green="0.33333333333333331" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgY-Ca-q9x">
-                                                            <rect key="frame" x="550" y="15" width="30" height="30"/>
+                                                            <rect key="frame" x="554" y="15" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="ng3-Oq-Czh"/>
                                                                 <constraint firstAttribute="width" constant="30" id="rVv-oY-DIK"/>
@@ -70,15 +71,16 @@
                                                             </state>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="center" lineBreakMode="tailTruncation" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="jbj-Ni-Frt" customClass="SpringLabel" customModule="KnotsCounter" customModuleProvider="target">
-                                                            <rect key="frame" x="472" y="6" width="70" height="48"/>
+                                                            <rect key="frame" x="496" y="13" width="50" height="34.5"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="70" id="hCs-jx-RQY"/>
+                                                                <constraint firstAttribute="width" constant="50" id="hCs-jx-RQY"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="35"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="25"/>
+                                                            <color key="textColor" red="0.20784313730000001" green="0.33333333329999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ea-rc-Tmr">
-                                                            <rect key="frame" x="434" y="15" width="30" height="30"/>
+                                                            <rect key="frame" x="458" y="15" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="gBr-lH-cyS"/>
                                                                 <constraint firstAttribute="height" constant="30" id="gKh-JL-x3k"/>
@@ -98,13 +100,14 @@
                                                     <constraints>
                                                         <constraint firstItem="jbj-Ni-Frt" firstAttribute="leading" secondItem="1ea-rc-Tmr" secondAttribute="trailing" constant="8" id="0Hp-Ef-HW6"/>
                                                         <constraint firstAttribute="centerY" secondItem="jG2-wo-rMm" secondAttribute="centerY" id="4AW-4m-sIG"/>
+                                                        <constraint firstItem="1ea-rc-Tmr" firstAttribute="leading" secondItem="iPg-kA-L7f" secondAttribute="trailing" constant="8" id="8jK-B0-dl0"/>
                                                         <constraint firstAttribute="centerY" secondItem="mgY-Ca-q9x" secondAttribute="centerY" id="COz-Qz-O8V"/>
                                                         <constraint firstAttribute="centerY" secondItem="iPg-kA-L7f" secondAttribute="centerY" id="Cw5-sy-tcx"/>
                                                         <constraint firstItem="Beu-u9-Ji2" firstAttribute="leading" secondItem="5RT-7W-7jM" secondAttribute="leading" id="Jw2-kQ-WcJ"/>
                                                         <constraint firstAttribute="centerY" secondItem="1ea-rc-Tmr" secondAttribute="centerY" id="NDT-FY-oVc"/>
                                                         <constraint firstItem="jG2-wo-rMm" firstAttribute="leading" secondItem="Beu-u9-Ji2" secondAttribute="trailing" constant="8" id="UjG-vC-KQ7"/>
                                                         <constraint firstAttribute="centerY" secondItem="jbj-Ni-Frt" secondAttribute="centerY" id="VNZ-ET-3Xe"/>
-                                                        <constraint firstAttribute="trailing" secondItem="mgY-Ca-q9x" secondAttribute="trailing" constant="20" id="bXS-r3-HhB"/>
+                                                        <constraint firstAttribute="trailing" secondItem="mgY-Ca-q9x" secondAttribute="trailing" constant="16" id="bXS-r3-HhB"/>
                                                         <constraint firstAttribute="bottom" secondItem="Beu-u9-Ji2" secondAttribute="bottom" id="tVq-b2-CyW"/>
                                                         <constraint firstItem="iPg-kA-L7f" firstAttribute="leading" secondItem="jG2-wo-rMm" secondAttribute="trailing" constant="8" id="tjt-iO-lmQ"/>
                                                         <constraint firstItem="1ea-rc-Tmr" firstAttribute="leading" secondItem="iPg-kA-L7f" secondAttribute="trailing" constant="8" id="wDO-M5-tLe"/>
