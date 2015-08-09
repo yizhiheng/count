@@ -39,10 +39,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.navigationController.navigationBar.barStyle = UIBarStyleBlack
-        //self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
-        
-        
         let button = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         self.navigationItem.backBarButtonItem = button
         
@@ -230,7 +226,6 @@ extension ViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate
             return img
         }
         return nil
-        
     }
 }
 

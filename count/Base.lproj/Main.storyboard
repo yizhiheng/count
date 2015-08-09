@@ -232,7 +232,7 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# of students.." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7V-OM-NPZ" userLabel="contentLabel" customClass="SpringLabel" customModule="KnotsCounter" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="# of students.." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7V-OM-NPZ" userLabel="contentLabel" customClass="SpringLabel" customModule="KnotsCounter" customModuleProvider="target">
                                         <rect key="frame" x="245" y="31" width="109" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="sAi-Q0-91i"/>
@@ -345,13 +345,16 @@
                                 <rect key="frame" x="0.0" y="360" width="600" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EyE-f0-YLB">
-                                        <rect key="frame" x="20" y="17" width="44" height="23.5"/>
+                                        <rect key="frame" x="20" y="18" width="44" height="23.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="P4q-U2-jdr"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Read books" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHq-BD-EBL">
-                                        <rect key="frame" x="488" y="18" width="91.5" height="23.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Read books" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHq-BD-EBL">
+                                        <rect key="frame" x="84" y="18" width="495.5" height="23.5"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                         <color key="textColor" red="0.20784313730000001" green="0.33333333329999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -360,10 +363,11 @@
                                 <color key="backgroundColor" red="0.3657536401" green="0.75884650929999997" blue="0.59918749780000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="YHq-BD-EBL" secondAttribute="trailing" constant="8" id="1cj-mc-36j"/>
-                                    <constraint firstAttribute="centerY" secondItem="EyE-f0-YLB" secondAttribute="centerY" constant="1.25" id="JgX-C1-o81"/>
+                                    <constraint firstAttribute="centerY" secondItem="EyE-f0-YLB" secondAttribute="centerY" id="JgX-C1-o81"/>
                                     <constraint firstAttribute="centerY" secondItem="YHq-BD-EBL" secondAttribute="centerY" constant="-2" id="MnX-EJ-vg8"/>
                                     <constraint firstItem="EyE-f0-YLB" firstAttribute="leading" secondItem="4AC-rt-aEe" secondAttribute="leading" constant="20" symbolic="YES" id="Z87-vP-h4G"/>
                                     <constraint firstAttribute="width" constant="600" id="Z88-Ad-Kfb"/>
+                                    <constraint firstItem="YHq-BD-EBL" firstAttribute="leading" secondItem="EyE-f0-YLB" secondAttribute="trailing" constant="20" id="bTC-FD-d8v"/>
                                     <constraint firstAttribute="trailing" secondItem="YHq-BD-EBL" secondAttribute="trailing" constant="20" symbolic="YES" id="cUG-ah-pwW"/>
                                     <constraint firstAttribute="height" constant="60" id="k9h-AS-Dgc"/>
                                     <constraint firstAttribute="centerY" secondItem="YHq-BD-EBL" secondAttribute="centerY" id="zcK-Fo-bZV"/>

@@ -148,8 +148,10 @@ public class SCLAlertView: UIViewController {
         viewText.font = UIFont(name: kDefaultFont, size:14)
         // Colours
         contentView.backgroundColor = UIColorFromRGB(0xFFFFFF)
-        labelTitle.textColor = UIColorFromRGB(0x4D4D4D)
-        viewText.textColor = UIColorFromRGB(0x4D4D4D)
+        
+        labelTitle.textColor = UIColorFromRGB(0x355566)     //UIColorFromRGB(0x4D4D4D)
+        viewText.textColor = UIColorFromRGB(0x355566)       //UIColorFromRGB(0x4D4D4D)
+        
         contentView.layer.borderColor = UIColorFromRGB(0xCCCCCC).CGColor
         //Gesture Recognizer for tapping outside the textinput
         let tapGesture = UITapGestureRecognizer(target: self, action: Selector("dismissKeyboard"))
@@ -481,7 +483,7 @@ public class SCLAlertView: UIViewController {
             btn.backgroundColor = UIColor.whiteColor()
             btn.layer.borderWidth = 0.5
             btn.layer.borderColor = UIColor.lightGrayColor().CGColor
-            btn.setTitleColor(UIColorFromRGB(colorTextButton!), forState:UIControlState.Normal)
+            btn.setTitleColor(UIColorFromRGB(0x355566), forState:UIControlState.Normal)
         }
         
         // Adding duration

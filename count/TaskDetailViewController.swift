@@ -50,13 +50,10 @@ class TaskDetailViewController: UIViewController {
         button.tintColor = UIColorFromRGB(0xffb527)
         self.navigationItem.backBarButtonItem = button
         //self.navigationItem.backBarButtonItem?.tintColor = UIColorFromRGB(0xffb527)
-        
-        
-        
+    
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         modifyLayout()
         
@@ -96,6 +93,10 @@ class TaskDetailViewController: UIViewController {
         addButton.layer.borderColor = UIColor.lightGrayColor().CGColor
         
         animateSwing(countLabel, contentLabel)
+        taskIcon.animation = "swing"
+        taskIcon.curve = "spring"
+        taskIcon.duration = 0.8
+        taskIcon.animate()
         showData()
         setScrollView()
         
@@ -119,7 +120,7 @@ class TaskDetailViewController: UIViewController {
     func showData () {
         colorBarView.backgroundColor = bgColors[Int(tasks[tappedTaskIndex].bgColor)]
         countLabel.text = "\(tasks[tappedTaskIndex].count)"
-        contentLabel.text = "\(tasks[tappedTaskIndex].content)..."
+        contentLabel.text = "\(tasks[tappedTaskIndex].content)"
         secondContentLabel.text = "\(tasks[tappedTaskIndex].content)"
         startingNumberLabel.text = "\(tasks[tappedTaskIndex].startingNumber)"
         stepDistanceLabel.text = "\(tasks[tappedTaskIndex].stepDistance)"
@@ -129,12 +130,12 @@ class TaskDetailViewController: UIViewController {
         
 //        let iconNameArray =  ["baby", "bulb", "flower", "pingpang", "shop", "anchor", "booklet", "caution", "cruise", "gamecontroller", "hourglass", "paintroller", "rainbow", "spaceshuttle", "tractor", "art", "briefcase", "chat", "denied", "gas", "lightbulb", "parachute", "recycle", "stack", "travelerbag", "bike", "brightness", "check", "fashion", "hazard", "megaphone2", "phone", "ribbon", "star", "ufo", "blimp", "browser", "compass", "flame", "heart", "merge", "plane", "rocket", "submarine", "unlocked", "bolt", "car", "compose", "flash", "helicopter", "microphone", "present", "running", "support", "windy", "bomb", "cart", "countdown", "flower", "hotair", "motorcycle", "racingflags", "tools", "x"]
         
-        let iconNameArray = ["baby", "bulb", "flower", "pingpong", "record", "ruby", "snow", "sun", "cloud", "gas", "house", "mill", "moon", "plane", "ship", "umbrella", "brush", "mobile", "money", "pill", "spray", "starwar", "suitcase", "wallet", "carrot", "chicken", "donut", "guitar", "keyboard", "lemon", "pizza", "tree"]
+        let iconNameArray = ["baby", "bulb", "flower", "pingpang", "record", "ruby", "snow", "sun", "cloud", "gas", "house", "mill", "moon", "plane", "ship", "umbrella", "brush", "mobile", "money", "pill", "spray", "starwar", "suitcase", "wallet", "carrot", "chicken", "donut", "guitar", "keyboard", "lemon", "pizza", "tree"]
+        
         scrollView.pagingEnabled = true
         scrollView.bounces = true
         scrollView.clipsToBounds = false
         scrollView.contentSize = CGSizeMake(2 * view.frame.size.width, scrollView.frame.size.height)
-        
         
         let viewWidth = view.frame.size.width
         let viewHeight = scrollView.frame.size.height
@@ -145,7 +146,7 @@ class TaskDetailViewController: UIViewController {
         var verticalPosition = verticalPadding
         var horizontalPosition = horizontalPadding
         
-        for index in 0...16 {
+        for index in 0...31 {
             let button = UIButton(frame: CGRectMake(horizontalPosition, verticalPosition, buttonLength, buttonLength))
             button.setImage(UIImage(named: iconNameArray[index]), forState: UIControlState.Normal)
             let name = iconNameArray[index]
@@ -153,9 +154,11 @@ class TaskDetailViewController: UIViewController {
             button.addTarget(self, action: "iconButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
             
             scrollView.addSubview(button)
-            
             if index == 3 || index == 7 || index == 11 {
                 horizontalPosition = horizontalPadding
+                verticalPosition += buttonLength + verticalPadding
+            } else if index == 19 || index == 23 || index == 27 {
+                horizontalPosition = viewWidth + horizontalPadding
                 verticalPosition += buttonLength + verticalPadding
             } else if index == 15 {
                 horizontalPosition += buttonLength + 2 * horizontalPadding
@@ -181,7 +184,7 @@ class TaskDetailViewController: UIViewController {
     
     func nameViewTapped (sender: AnyObject) {
         let alert = SCLAlertView()
-        let nameTextField = alert.addTextField(title:"new task name...")
+        let nameTextField = alert.addTextField(title:"new task name")
         alert.addButton("Submit") {
             alert.isGoingToDismiss = true
             var stateChanged = false
@@ -233,7 +236,7 @@ class TaskDetailViewController: UIViewController {
                 self.showData()
             }
         }
-        alert.showEdit("Change starting #...", subTitle:"What is the new starting # of this task? Old record will be earsed")
+        alert.showEdit("Change starting #...", subTitle:"What is the new starting # of this task? Old record will be erased")
     }
     func stepViewTapped (sender: AnyObject) {
         let alert = SCLAlertView()
