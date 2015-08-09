@@ -32,10 +32,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     override func viewWillAppear(animated: Bool) {
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        self.navigationController?.view.backgroundColor = UIColor.clearColor()
-//        self.navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
         refresh()
         taskCollectionView.reloadData()
         
@@ -46,14 +42,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         //self.navigationController.navigationBar.barStyle = UIBarStyleBlack
         //self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
         
+        
+        let button = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = button
+        
         taskCollectionView.emptyDataSetSource = self
         
         taskCollectionView.dataSource = self
         taskCollectionView.delegate = self
-        
-
-    
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         
         newTaskButton.layer.shadowOffset = CGSizeMake(3, 3)
         newTaskButton.layer.shadowRadius = 3
@@ -63,8 +59,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let titleLabel = UILabel(frame: CGRectMake(0, 0, 200, 40))
         titleLabel.font = UIFont(name: "Avenir Next", size: 21)
         titleLabel.textAlignment = .Center
-        titleLabel.text = "KnotsCounter"
-        titleLabel.textColor = UIColor.blackColor()
+        titleLabel.text = "Knots Counter"
+        titleLabel.textColor = UIColorFromRGB(0x355566)
         titleLabel.backgroundColor = UIColor.clearColor()
         titleLabel.adjustsFontSizeToFitWidth = true
         self.navigationItem.titleView = titleLabel
@@ -93,6 +89,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         cell.minusButton.tag = indexPath.row
         cell.addButton.addTarget(self, action: "addTapped:", forControlEvents: .TouchUpInside)
         cell.minusButton.addTarget(self, action: "minusTapped:", forControlEvents: .TouchUpInside)
+        
+        if let taskIcon = UIImage(named: tasks[indexPath.row].icon) {
+            
+        } else {
+        
+        }
         cell.iconImageView.image = UIImage(named: tasks[indexPath.row].icon)
         cell.content = tasks[indexPath.row].content
         cell.count = Int(tasks[indexPath.row].count)

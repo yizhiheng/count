@@ -40,11 +40,34 @@ class TaskDetailViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         self.view.backgroundColor = UIColor.whiteColor()
+        
+        
+        let backButton = UIBarButtonItem(image: UIImage(named: "back"), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        //        navigationController?.navigationBar.backIndicatorImage = UIImage(named: "back")
+        //        navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "back")
+        
+        let button = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        button.tintColor = UIColorFromRGB(0xffb527)
+        self.navigationItem.backBarButtonItem = button
+        //self.navigationItem.backBarButtonItem?.tintColor = UIColorFromRGB(0xffb527)
+        
+        
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         modifyLayout()
+        
+        let titleLabel = UILabel(frame: CGRectMake(0, 0, 200, 40))
+        titleLabel.font = UIFont(name: "Avenir Next", size: 21)
+        titleLabel.textAlignment = .Center
+        titleLabel.text = "Task Detail"
+        titleLabel.textColor = UIColorFromRGB(0x355566)
+        titleLabel.backgroundColor = UIColor.clearColor()
+        titleLabel.adjustsFontSizeToFitWidth = true
+        self.navigationItem.titleView = titleLabel
         
         let nameViewTap = UITapGestureRecognizer(target: self, action: "nameViewTapped:")
         nameStatusView.addGestureRecognizer(nameViewTap)
@@ -104,8 +127,9 @@ class TaskDetailViewController: UIViewController {
     }
     func setScrollView () {
         
-        let iconNameArray =  ["baby", "bulb", "flower", "pingpang", "shop", "anchor", "booklet", "caution", "cruise", "gamecontroller", "hourglass", "paintroller", "rainbow", "spaceshuttle", "tractor", "art", "briefcase", "chat", "denied", "gas", "lightbulb", "parachute", "recycle", "stack", "travelerbag", "bike", "brightness", "check", "fashion", "hazard", "megaphone2", "phone", "ribbon", "star", "ufo", "blimp", "browser", "compass", "flame", "heart", "merge", "plane", "rocket", "submarine", "unlocked", "bolt", "car", "compose", "flash", "helicopter", "microphone", "present", "running", "support", "windy", "bomb", "cart", "countdown", "flower", "hotair", "motorcycle", "racingflags", "tools", "x"]
-
+//        let iconNameArray =  ["baby", "bulb", "flower", "pingpang", "shop", "anchor", "booklet", "caution", "cruise", "gamecontroller", "hourglass", "paintroller", "rainbow", "spaceshuttle", "tractor", "art", "briefcase", "chat", "denied", "gas", "lightbulb", "parachute", "recycle", "stack", "travelerbag", "bike", "brightness", "check", "fashion", "hazard", "megaphone2", "phone", "ribbon", "star", "ufo", "blimp", "browser", "compass", "flame", "heart", "merge", "plane", "rocket", "submarine", "unlocked", "bolt", "car", "compose", "flash", "helicopter", "microphone", "present", "running", "support", "windy", "bomb", "cart", "countdown", "flower", "hotair", "motorcycle", "racingflags", "tools", "x"]
+        
+        let iconNameArray = ["baby", "bulb", "flower", "pingpong", "record", "ruby", "snow", "sun", "cloud", "gas", "house", "mill", "moon", "plane", "ship", "umbrella", "brush", "mobile", "money", "pill", "spray", "starwar", "suitcase", "wallet", "carrot", "chicken", "donut", "guitar", "keyboard", "lemon", "pizza", "tree"]
         scrollView.pagingEnabled = true
         scrollView.bounces = true
         scrollView.clipsToBounds = false

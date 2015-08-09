@@ -202,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="906" y="-384"/>
+            <point key="canvasLocation" x="886" y="-434"/>
         </scene>
         <!--Details-->
         <scene sceneID="Dkd-Vv-TPo">
@@ -535,7 +535,8 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Details" id="Yj5-Bw-qwB">
-                        <barButtonItem key="rightBarButtonItem" title="Delete" id="pMN-P6-XmV">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="pMN-P6-XmV">
+                            <color key="tintColor" red="1" green="0.70980392156862748" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="deleteButtonTapped:" destination="V4r-fT-7NN" id="aVC-cr-8Ly"/>
                             </connections>
@@ -592,4 +593,5 @@
     <resources>
         <image name="calculator" width="64" height="64"/>
     </resources>
+    <color key="tintColor" red="1" green="0.70980392160000005" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
 </document>
