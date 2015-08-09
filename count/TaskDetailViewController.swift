@@ -41,7 +41,6 @@ class TaskDetailViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         self.view.backgroundColor = UIColor.whiteColor()
         
-        
         let backButton = UIBarButtonItem(image: UIImage(named: "back"), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
         //        navigationController?.navigationBar.backIndicatorImage = UIImage(named: "back")
         //        navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "back")
@@ -50,12 +49,25 @@ class TaskDetailViewController: UIViewController {
         button.tintColor = UIColorFromRGB(0xffb527)
         self.navigationItem.backBarButtonItem = button
         //self.navigationItem.backBarButtonItem?.tintColor = UIColorFromRGB(0xffb527)
-    
+        
+
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        modifyLayout()
+        countLabel.adjustsFontSizeToFitWidth = true
+        if DeviceType.IS_IPHONE_4 {
+            statusViewHeight.constant = 45.0
+        } else if DeviceType.IS_IPHONE_5 {
+            statusViewHeight.constant = 50.0
+        } else {
+            statusViewHeight.constant = 60.0
+        }
+        scrollViewHeight = statusViewHeight.constant * 5
+        println("viewDidload: \(scrollViewHeight)")
+        self.scrollView.transform = CGAffineTransformMakeTranslation(0, scrollViewHeight)
+        
         
         let titleLabel = UILabel(frame: CGRectMake(0, 0, 200, 40))
         titleLabel.font = UIFont(name: "Avenir Next", size: 21)
@@ -98,22 +110,14 @@ class TaskDetailViewController: UIViewController {
         taskIcon.duration = 0.8
         taskIcon.animate()
         showData()
+        
         setScrollView()
         
         
     }
     
     func modifyLayout () {
-        countLabel.adjustsFontSizeToFitWidth = true
-        if DeviceType.IS_IPHONE_4 {
-            statusViewHeight.constant = 45.0
-        } else if DeviceType.IS_IPHONE_5 {
-            statusViewHeight.constant = 50.0
-        } else {
-          statusViewHeight.constant = 60.0
-        }
-        scrollViewHeight = statusViewHeight.constant * 5
-        self.scrollView.transform = CGAffineTransformMakeTranslation(0, scrollViewHeight)
+        
         
     }
     
@@ -135,11 +139,18 @@ class TaskDetailViewController: UIViewController {
         scrollView.pagingEnabled = true
         scrollView.bounces = true
         scrollView.clipsToBounds = false
-        scrollView.contentSize = CGSizeMake(2 * view.frame.size.width, scrollView.frame.size.height)
+        scrollView.contentSize = CGSizeMake(2 * view.frame.size.width, scrollViewHeight)
         
+        println(scrollViewHeight)
         let viewWidth = view.frame.size.width
-        let viewHeight = scrollView.frame.size.height
-        let buttonLength: CGFloat = 50
+        let viewHeight = scrollViewHeight
+        
+        
+        var buttonLength: CGFloat = 45
+        if DeviceType.IS_IPHONE_4 {
+            buttonLength = 35.0
+        } 
+        
         let verticalPadding = (viewHeight - 4 * buttonLength) / 5
         let horizontalPadding = (viewWidth - 4 * buttonLength) / 5
         

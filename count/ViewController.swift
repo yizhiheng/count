@@ -154,7 +154,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         task.count = Int32(0)
         task.startingNumber = Int32(0)
         task.stepDistance = Int32(1)
-        task.icon = "shop"    //default icon
+        task.icon = "bulb"    //default icon
         
         //给任务赋值颜色
         if let lastTask = tasks.last {

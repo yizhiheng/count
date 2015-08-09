@@ -30,7 +30,7 @@ func deleteTaskAtIndex (index: Int) {
 func upperBorder (view: UIView) -> CALayer {
     let upperBorder = CALayer()
     upperBorder.backgroundColor = UIColor.lightGrayColor().CGColor
-    upperBorder.frame = CGRectMake(0, 0, CGRectGetWidth(view.frame), 0.3)
+    upperBorder.frame = CGRectMake(0, 0, 1024, 0.3)
     return upperBorder
 }
 func updateStoredItem (task: Task, flag: Flag) {
